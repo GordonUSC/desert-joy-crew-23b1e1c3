@@ -259,6 +259,28 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
 @media (prefers-reduced-motion:reduce){.sign.boot .name span,.sign.boot .vac b,.popin{animation:none}#balloons{display:none}}
 
 @media (prefers-reduced-motion:reduce){.bulbs,.marquee .bulbline,.star-burst,.disc,.vac b{animation:none}.door .panel,.door img,.fourth img,.slip .m{transition:none}}
+
+/* ---- legibility pass: nothing under 14px ---- */
+.rules .rs{font-size:14px;letter-spacing:.06em}
+body{font-size:17px}
+.sub,.intro p,.stop,.stop b,.what,.slip .f,.desk li,.picks li,.quest,.quest b,.crawlbox span,.board,.board div,.juke,.goals,.goals li{font-size:17px}
+.quest small,.stop .joy,.free,.slip .tap,.slip .h,.crawlstat,.dstat,#callout,.result,.rs,.play small,.seat span,.seat b,.whos button,.pill,.fob+span,.keys span,.door .suite,.hang,.lvl,.est,.stop .t,.foot,.post .ph span,.play .pn,.reset,.vac,.nextup,.nextup span,.marquee small{font-size:14px}
+.door .hang{font-size:14px;letter-spacing:.06em;padding:4px 10px}
+.nextup{font-size:16px}.nextup span{font-size:14px;letter-spacing:.1em}
+.sign .est{font-size:14px;letter-spacing:.14em}
+.lvl{letter-spacing:.06em}
+.door .suite{letter-spacing:.04em;line-height:1.2}
+.door .who{font-size:28px}
+.btn,.act,.dish,.cbtn,.fwbtn,.pill,.whos button,.play b,.bar{font-size:16px}
+.play b{font-size:20px}
+.bar{font-size:15px}
+#toast span{font-size:15px}
+.rv p,.rv .result{font-size:17px}
+.slip .m{font-size:21px}
+.post .ph b{font-size:26px}
+.foot{line-height:1.5}
+.reset{font-size:14px}
+.room{font-size:28px}
 </style>
 
 </head><body><canvas id="fx" aria-hidden="true"></canvas>
@@ -276,7 +298,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
   <section class="intro">
     <p><b>Welcome to Desert Joy, crew.</b> Four nights, one crew, every room booked. The sign says NO VACANCY because everyone Gordon loves is already here.</p>
     <p>Find your door below. Each one hides a surprise made just for you. Every stop, every quest and every gift at the table earns a key.</p>
-    <div class="bar"><button class="pill" id="snd" aria-pressed="false">🔈 Sound off</button><span style="font-size:13px;color:var(--dim)">Turn sound on for the full show.</span></div>
+    <div class="bar"><button class="pill" id="snd" aria-pressed="false">🔈 Sound off</button><span style="font-size:15px;color:var(--dim)">Turn sound on for the full show.</span></div>
   </section>
 
 
