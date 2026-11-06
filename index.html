@@ -287,6 +287,11 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
 @media (max-width:360px){.bsq{font-size:14px;min-height:96px}}
 @media (prefers-reduced-motion:reduce){.reel.landed,.dare.jackpot,.bsq[aria-pressed="true"]::after{animation:none}}
 
+
+.snd-float{position:fixed;bottom:max(14px,env(safe-area-inset-bottom,0px));left:max(14px,env(safe-area-inset-left,0px));z-index:45;min-height:44px;padding:8px 14px;border-radius:99px;border:3px solid var(--ink);background:var(--cream);color:var(--ink);font:700 16px/1 var(--body);box-shadow:0 4px 0 var(--flam);cursor:pointer}
+.snd-float b{font-family:var(--head);font-weight:400}
+.snd-float[aria-pressed="true"]{background:var(--cit)}
+
 @media (prefers-reduced-motion:reduce){.bulbs,.marquee .bulbline,.star-burst,.disc,.vac b{animation:none}.door .panel,.door img,.fourth img,.slip .m{transition:none}}
 
 /* ---- legibility pass: nothing under 14px ---- */
@@ -668,11 +673,11 @@ body{font-size:17px}
   S.crawl=S.crawl||{};
   var BARS={hunters:["Hunters",1],chill:["Chill",1],blackbook:["Blackbook",1],quadz:["QuadZ",1],dicks:["Dick's",1],toolshed:["Tool Shed",0]};
   var cb=$("#crawlbox");
-  function crawlRender(){var n=0;$$(".bar").forEach(function(b){var d=S.crawl[b.dataset.bar];if(d){b.setAttribute("data-done","");n++}else b.removeAttribute("data-done")});
+  function crawlRender(){var n=0;$$(".bar[data-bar]").forEach(function(b){var d=S.crawl[b.dataset.bar];if(d){b.setAttribute("data-done","");n++}else b.removeAttribute("data-done")});
     $("#crawlstat").textContent=n+" of 6 bars · "+(n?"no lines waited":"wristband ready");return n}
   function crawlDone(bar){var was=crawlRender()===6;S.crawl[bar]=true;save();var n=crawlRender();
     if(n===6&&!was){S.crawlWin=true;save();setTimeout(function(){cb.innerHTML='<b>“We literally ran Tool Shed.”</b><span>Gordon’s words from his 55th, now a trophy. Six bars, zero lines.</span><span class="crawlstat">ACHIEVEMENT · ARENAS ROYALTY</span>';toast("👑","Arenas royalty!","You ran the whole crawl. Six bars, zero lines.",true);play("levelup");burst(innerWidth/2,innerHeight/3,200,"star");earn(null,null)},500)}}
-  $$(".bar").forEach(function(b){b.addEventListener("click",function(){var key=b.dataset.bar,info=BARS[key];
+  $$(".bar[data-bar]").forEach(function(b){b.addEventListener("click",function(){var key=b.dataset.bar,info=BARS[key];
     if(info[1]){cb.innerHTML='<b>'+info[0]+'</b><span>The line is out the door. Flash your Skip the Line wristband.</span><button class="btn" id="flash">Flash the wristband ⚡</button><img class="band" src="wristband-band.png" alt="A Desert Joy 56 VIP all-access wristband"><span class="crawlstat" id="crawlstat"></span>';
       $("#flash").addEventListener("click",function(){var band=$(".band",cb);band.classList.add("flash");setTimeout(function(){band.classList.remove("flash")},400);at(this,50,"star");play("combo");this.disabled=true;this.textContent="⚡ Skipped the line!";toast("⚡","Skipped the line at "+info[0],"Wristband power. Straight to the dance floor.");crawlDone(key)})}
     else{cb.innerHTML='<b>Tool Shed</b><span>No wristband here. Alex says the line looks slow but it moves constantly. Tap GO when the marker is in the green.</span><div class="linebar"><i id="mk"></i></div><button class="btn" id="go">GO</button><span class="crawlstat" id="crawlstat"></span>';
@@ -789,6 +794,11 @@ body{font-size:17px}
     if(now[1]>bPrev[1]){at($("#bingo"),200,"star");play("levelup");toast("🎉","BINGO!","Four in a row. The desert is proud of you.",true);try{if(typeof fireworks==="function"&&!reduce)fireworks()}catch(e){}if(!S.bingoWin){S.bingoWin=true;save();earn(null,null)}}
     if(now[0]===16&&bPrev[0]<16){toast("🏳️‍🌈","PRIDE LEGEND","You filled the whole card. Legendary.",true);play("fanfare")}
     bPrev=now})});
+
+  /* always-visible sound switch, mirrors #snd */
+  (function(){var src=$("#snd");if(!src)return;var f=document.createElement("button");f.type="button";f.className="snd-float";f.id="snd-float";f.setAttribute("aria-label","Sound on or off");document.body.appendChild(f);
+    function sync(){var on=src.getAttribute("aria-pressed")==="true";f.setAttribute("aria-pressed",on);f.innerHTML=on?"🔊 Sound <b>ON</b>":"🔇 Sound <b>OFF</b>";src.textContent=on?"🔊 Sound ON":"🔇 Sound OFF"}
+    f.addEventListener("click",function(){src.click()});src.addEventListener("click",function(){setTimeout(sync,0)});sync()})();
   $("#reset").addEventListener("click",function(){S={stops:{},quests:{},play:null,seats:{},rooms:{},goals:{},crawl:{},dance:{},pops:0,pulls:0,jack:0,bingo:{}};save();render();$("#callout").textContent=""});
   function cd(){var t=new Date("2026-11-09T00:00:00-08:00")-new Date(),el=$("#cd");if(t<=0&&t>-864e5){el.textContent="Happy birthday";return}if(t<=0){el.textContent="56 and counting";return}var d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5);el.textContent=(d?d+"d ":"")+h+"h to 56"}
   cd();setInterval(cd,60000);render();try{if(reduce){var hv=$("#herov");hv.removeAttribute("autoplay");hv.pause()}}catch(e){}
