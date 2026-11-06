@@ -1,0 +1,440 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><!-- STYLE: Palm Springs Googie motel, crew cut | WHY: Palm Springs is the capital of mid-century Googie signage, and Gordon was born in 1970, so the weekend is a motel he owns for four nights: a chase-light sign that says NO VACANCY because the crew is all here, five guest-room doors that each hide a bespoke surprise, key fobs instead of stars, While-You-Were-Out message slips for wishes | ALT: v3 risograph quest board, rejected because Gordon asked for a bespoke, new design and the quest board had become a house look -->
+<title>Desert Joy 56: Crew</title><meta property="og:title" content="Desert Joy 56: your room is ready"><meta property="og:image" content="s-gordon.jpg">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monoton&family=Righteous&family=Outfit:wght@400;600;800&family=Courier+Prime:wght@400;700&display=swap">
+<style>[hidden]{display:none!important}html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:#0f1a3a}img{max-width:100%}
+/* Layout: one phone-width column down a motel at night. Sign, key-fob meter, five guest-room doors (surprises open in a full-screen room), marquee play-call, four postcards, pool rules, the fourth seat, message slips, jukebox, front desk. */
+:root{
+  --mid:#0f1a3a; --mid2:#182756; --cream:#fdf1d8; --ink:#14203f; --pool:#19b8b0; --flam:#ff6f91; --flamd:#d63a62; --cit:#ffb000; --cact:#57b05a; --bulb:#fff2b0; --dim:#9aa6c8;
+  --sign:"Monoton","Righteous",cursive; --head:"Righteous","Trebuchet MS",sans-serif; --body:"Outfit","Helvetica Neue",Arial,sans-serif; --type:"Courier Prime","Courier New",monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--mid);color:var(--cream);font-family:var(--body);font-size:16px;line-height:1.45;margin:0;
+  background-image:radial-gradient(1px 1px at 20% 30%,rgba(255,242,176,.5),transparent),radial-gradient(1px 1px at 70% 60%,rgba(255,242,176,.4),transparent),radial-gradient(1px 1px at 40% 80%,rgba(255,242,176,.35),transparent);background-size:220px 220px}
+.wrap{max-width:600px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px;display:flex;flex-direction:column;gap:30px}
+h2{font-family:var(--head);font-weight:400;font-size:28px;margin:0;color:var(--cit);letter-spacing:.01em}
+.sub{margin:6px 0 14px;color:rgba(253,241,216,.82);font-size:15px}
+button{font:inherit;color:inherit}
+button:focus-visible{outline:3px solid var(--bulb);outline-offset:3px}
+
+/* ---- the sign ---- */
+.hero{position:relative;overflow-x:clip;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)))}
+.hero img,.hero video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.1) brightness(.78)}
+.sign{position:absolute;left:50%;bottom:-38px;transform:translateX(-50%) rotate(-3deg);width:min(88%,460px);background:var(--flam);border-radius:28px 90px 28px 90px;padding:16px 18px 18px;box-shadow:0 0 0 5px var(--cream),0 0 0 9px var(--pool),0 18px 40px rgba(0,0,0,.5)}
+.bulbs{position:absolute;inset:7px;border-radius:24px 84px 24px 84px;pointer-events:none;background:
+  radial-gradient(circle,var(--bulb) 0 3px,transparent 4px) 0 0/22px 22px;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:5px;animation:chase 1.2s steps(2) infinite}
+@keyframes chase{50%{background-position:11px 0}}
+.sign .est{font-family:var(--type);font-size:12px;letter-spacing:.24em;color:var(--mid);font-weight:700}
+.sign .name{font-family:var(--sign);font-size:clamp(34px,10vw,52px);line-height:1.05;color:var(--cream);text-shadow:0 0 8px var(--bulb),0 0 18px var(--cit)}
+.sign .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
+.room{background:var(--mid);color:var(--bulb);font-family:var(--head);font-size:26px;padding:4px 14px;border-radius:12px;box-shadow:inset 0 0 0 2px var(--cit)}
+.vac{font-family:var(--head);font-size:15px;letter-spacing:.08em;padding:6px 10px;border-radius:8px;background:var(--mid)}
+.vac b{color:#ff4b4b;text-shadow:0 0 8px #ff4b4b;animation:flick 4s infinite}
+@keyframes flick{0%,92%,100%{opacity:1}93%{opacity:.25}95%{opacity:1}97%{opacity:.4}}
+.vac span{color:#3a4466}
+.star-burst{position:absolute;right:-18px;top:-26px;width:64px;height:64px;background:var(--cit);clip-path:polygon(50% 0,58% 36%,96% 20%,66% 48%,100% 62%,62% 62%,72% 100%,50% 70%,28% 100%,38% 62%,0 62%,34% 48%,4% 20%,42% 36%);animation:spin 9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.intro{margin-top:46px;display:grid;gap:10px}
+.intro p{margin:0;font-size:17px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pill{background:var(--mid2);border:2px solid var(--pool);border-radius:99px;padding:8px 14px;font-weight:800;font-size:14px;cursor:pointer}
+.pill[aria-pressed="true"]{background:var(--pool);color:var(--ink)}
+
+/* ---- key fobs meter ---- */
+.keys{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--mid2);border:2px solid var(--cit);border-radius:16px;padding:8px 12px;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center}
+.keys b{font-family:var(--head);font-weight:400;font-size:20px;color:var(--cit);white-space:nowrap}
+.fobs{display:flex;gap:4px;flex-wrap:wrap}
+.fob{width:12px;height:18px;border-radius:3px 3px 8px 8px;background:rgba(253,241,216,.15)}
+.fob.on{background:var(--c,var(--flam));box-shadow:0 0 6px var(--c,var(--flam))}
+.keys span{font-family:var(--type);font-size:12px}
+
+/* ---- guest doors ---- */
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.door{position:relative;border:0;padding:0;cursor:pointer;border-radius:14px 14px 6px 6px;overflow:hidden;aspect-ratio:3/4.4;background:var(--dc);box-shadow:0 6px 0 rgba(0,0,0,.35);text-align:left}
+.door.wide{grid-column:1/-1;aspect-ratio:16/9}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.0;transition:opacity .5s}
+.door .panel{position:absolute;inset:10px;border-radius:10px 10px 4px 4px;border:3px solid rgba(20,32,63,.25);display:flex;flex-direction:column;justify-content:space-between;padding:10px;transition:transform .6s;transform-origin:left center;background:var(--dc)}
+.door .num{align-self:center;font-family:var(--head);font-size:22px;color:var(--ink);background:var(--cream);border-radius:50%;width:44px;height:44px;display:grid;place-items:center;box-shadow:inset 0 0 0 3px var(--cit)}
+.door .knob{position:absolute;right:16px;top:55%;width:14px;height:14px;border-radius:50%;background:var(--cit);box-shadow:0 0 0 3px var(--ink)}
+.door .who{font-family:var(--head);font-size:22px;color:var(--ink);line-height:1}
+.door .suite{font-family:var(--type);font-size:12px;color:var(--ink);font-weight:700;letter-spacing:.06em}
+.door[data-seen] img{opacity:.55}
+.door[data-seen] .panel{transform:perspective(600px) rotateY(-28deg)}
+.door .hang{position:absolute;top:8px;right:-4px;background:var(--cream);color:var(--ink);font-family:var(--type);font-size:10px;font-weight:700;padding:3px 8px;transform:rotate(6deg);border-radius:3px}
+
+/* ---- surprise room overlay ---- */
+.roomview[hidden]{display:none}
+.roomview{position:fixed;inset:0;z-index:30;background:rgba(10,14,32,.94);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.rv{position:relative;width:min(100%,460px);max-height:100%;overflow:auto;background:var(--cream);color:var(--ink);border-radius:20px;box-shadow:0 0 0 4px var(--rc),0 0 40px var(--rc)}
+.rv .art{position:relative;overflow:hidden}
+.rv .art img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;transition:filter .3s,transform .3s}
+.rv .txt{padding:14px 16px 18px;display:grid;gap:10px}
+.rv h3{font-family:var(--head);font-weight:400;font-size:26px;margin:0;color:var(--rcd)}
+.rv p{margin:0}
+.rv .close{position:absolute;top:10px;right:10px;z-index:3;background:var(--ink);color:var(--cream);border:0;border-radius:99px;padding:8px 14px;font-weight:800;cursor:pointer}
+.act{background:var(--rc);color:var(--ink);border:0;border-radius:99px;padding:14px 18px;font-weight:800;font-size:17px;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:none}
+.gauge{height:14px;border-radius:99px;background:rgba(20,32,63,.12);overflow:hidden}
+.gauge i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pool),var(--flam),var(--cit))}
+.result{font-family:var(--type);font-weight:700;color:var(--rcd);min-height:1.3em}
+.beams{position:absolute;inset:0;pointer-events:none;background:conic-gradient(from 200deg at 50% 100%,transparent 0 10deg,rgba(255,242,176,.0) 10deg 14deg,transparent 14deg 26deg,rgba(255,111,145,.0) 26deg 30deg,transparent 30deg);mix-blend-mode:screen;transition:opacity .2s;opacity:0}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.stamps{position:absolute;inset:0;pointer-events:none}
+.stamps span{position:absolute;font-family:var(--head);font-size:15px;color:var(--flamd);border:3px solid var(--flamd);border-radius:50%;width:86px;height:86px;display:grid;place-items:center;text-align:center;line-height:1;background:rgba(253,241,216,.75);transform:rotate(var(--r));animation:thunk .25s ease-out}
+@keyframes thunk{from{transform:rotate(var(--r)) scale(1.8);opacity:0}}
+.plate{display:flex;flex-wrap:wrap;gap:8px}
+.dish{border:2px solid var(--ink);background:transparent;border-radius:99px;padding:8px 12px;font-weight:700;cursor:pointer}
+.dish[aria-pressed="true"]{background:var(--cact);border-color:var(--cact);color:#fff}
+.sky{position:absolute;inset:0;pointer-events:none}
+
+/* ---- marquee play-call ---- */
+.marquee{background:var(--mid2);border-radius:18px;padding:14px;box-shadow:inset 0 0 0 3px var(--cit)}
+.marquee .bulbline{height:10px;background:radial-gradient(circle,var(--bulb) 0 3px,transparent 4px) 0 0/18px 10px;animation:chase 1s steps(2) infinite;margin-bottom:10px}
+.deck{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.play{position:relative;text-align:left;background:var(--cream);color:var(--ink);border:0;border-radius:12px;padding:10px;cursor:pointer;display:grid;gap:4px;min-height:132px;align-content:start}
+.play .pn{font-family:var(--type);font-size:11px;font-weight:700;color:var(--flamd);letter-spacing:.08em}
+.play b{font-family:var(--head);font-weight:400;font-size:19px;line-height:1.05}
+.play small{font-size:13px;color:#4b5679}
+.play .en{color:var(--flamd);letter-spacing:2px}
+.play[aria-pressed="true"]{box-shadow:0 0 0 4px var(--cit),0 0 18px var(--cit)}
+.play[aria-pressed="true"]::after{content:"TONIGHT";position:absolute;top:8px;right:-4px;background:var(--flam);color:#fff;font-family:var(--type);font-weight:700;font-size:11px;padding:2px 8px;transform:rotate(6deg)}
+.play.hl{background:var(--bulb)}
+.mbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+.btn{background:var(--cit);color:var(--ink);border:0;border-radius:99px;padding:10px 16px;font-weight:800;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--cream);border:2px solid rgba(253,241,216,.5)}
+#callout{font-family:var(--type);font-size:13px;color:var(--pool);min-height:1.3em;width:100%}
+
+/* ---- postcards ---- */
+.cards{display:grid;gap:16px}
+.post{background:var(--cream);color:var(--ink);border-radius:6px;padding:10px;box-shadow:0 10px 24px rgba(0,0,0,.35);transform:rotate(var(--tilt))}
+.post img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px;max-width:100%}
+.post .ph{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:10px 4px 4px;border-bottom:2px dashed rgba(20,32,63,.25);padding-bottom:6px}
+.post .ph b{font-family:var(--head);font-weight:400;font-size:24px;color:var(--pc)}
+.post .ph span{margin-left:auto;font-family:var(--type);font-size:12px;font-weight:700}
+.stops{list-style:none;margin:0;padding:0;display:grid}
+.stop{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;width:100%;text-align:left;background:transparent;border:0;border-radius:8px;padding:8px 4px;cursor:pointer}
+.stop .k{width:26px;height:36px;border-radius:4px 4px 12px 12px;border:2px dashed #7d87a8;margin-top:2px;position:relative}
+.stop .k::after{content:"";position:absolute;left:50%;top:-8px;width:10px;height:10px;border-radius:50%;border:2px solid #7d87a8;transform:translateX(-50%)}
+.stop[aria-pressed="true"] .k{border:0;background:var(--pc)}
+.stop .t{font-family:var(--type);font-size:12px;color:#4b5679;display:block}
+.stop b{font-weight:800}
+.stop .joy{display:block;font-size:14px;color:var(--flamd);font-weight:600}
+.stop[aria-pressed="true"] .what{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--pc);opacity:.7}
+.free{font-family:var(--type);font-size:13px;font-weight:700;margin:6px 4px 2px;color:var(--flamd)}
+
+/* ---- pool rules ---- */
+.rules{background:var(--pool);color:var(--ink);border-radius:8px;padding:16px;box-shadow:0 0 0 6px var(--cream),0 0 0 10px var(--pool)}
+.rules h2{color:var(--ink);font-size:24px}
+.rules .rs{font-family:var(--type);font-weight:700;font-size:12px}
+.quests{display:grid;gap:6px;margin-top:10px}
+.quest{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;text-align:left;background:rgba(253,241,216,.6);border:0;border-radius:10px;padding:8px 10px;cursor:pointer}
+.quest .e{font-size:22px;filter:grayscale(1);opacity:.6}
+.quest[aria-pressed="true"]{background:var(--cream);box-shadow:inset 0 0 0 2px var(--ink)}
+.quest[aria-pressed="true"] .e{filter:none;opacity:1}
+.quest small{display:block;font-size:13px;color:#2d3a5e}
+
+/* ---- the fourth seat ---- */
+.table{background:var(--mid2);border-radius:20px;padding:16px;display:grid;gap:12px;box-shadow:inset 0 0 0 2px rgba(255,176,0,.5)}
+.seats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seat{background:rgba(253,241,216,.07);border:2px dashed rgba(253,241,216,.4);border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;display:grid;gap:2px;justify-items:center}
+.seat b{font-weight:800;font-size:14px}
+.seat span{font-size:12px;color:rgba(253,241,216,.75)}
+.seat[data-gave]{border-style:solid;border-color:var(--cit);background:rgba(255,176,0,.14)}
+.give{display:none;gap:8px;flex-wrap:wrap;justify-content:center}
+.give.on{display:flex}
+.fourth{border:3px dashed var(--cit);border-radius:16px;padding:12px;text-align:center;display:grid;gap:4px;justify-items:center}
+.fourth img{width:140px;height:auto;filter:grayscale(1) brightness(.5);opacity:.5;transition:all .8s}
+.fourth.lit{background:radial-gradient(circle,rgba(255,176,0,.35),transparent 70%)}
+.fourth.lit img{filter:none;opacity:1;transform:scale(1.06)}
+.fourth strong{font-family:var(--head);font-weight:400;font-size:22px;color:var(--cit)}
+
+/* ---- while you were out ---- */
+.slips{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.slip{position:relative;background:#ffd7e2;color:var(--ink);border:0;border-radius:2px;padding:10px 10px 12px;text-align:left;cursor:pointer;font-family:var(--type);box-shadow:0 6px 14px rgba(0,0,0,.35);transform:rotate(var(--t));min-height:150px;display:grid;align-content:start;gap:4px}
+.slip .h{font-weight:700;font-size:12px;letter-spacing:.06em;color:var(--flamd);border-bottom:1px solid var(--flamd);padding-bottom:3px}
+.slip .f{font-size:13px}
+.slip .m{font-family:var(--head);font-size:19px;line-height:1.1;color:var(--ink);filter:blur(5px);transition:filter .4s}
+.slip[aria-expanded="true"] .m{filter:none}
+.slip .tap{font-size:11px;color:#6a4a57}
+.slip[aria-expanded="true"] .tap{visibility:hidden}
+
+/* ---- jukebox + desk ---- */
+.juke{display:flex;gap:14px;align-items:center;background:linear-gradient(180deg,var(--flam),var(--cit));color:var(--ink);border-radius:60px 60px 14px 14px;padding:16px}
+.disc{flex:none;width:64px;height:64px;border-radius:50%;background:repeating-radial-gradient(circle,#111 0 3px,#2a2a2a 3px 5px);box-shadow:inset 0 0 0 22px #111,inset 0 0 0 26px var(--cream);animation:spin 3s linear infinite}
+.juke a{color:var(--ink);font-weight:800}
+a{color:var(--pool);font-weight:800}
+.desk{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.desk li{background:var(--mid2);border-left:6px solid var(--pool);border-radius:8px;padding:10px 12px;font-size:15px}
+.desk b{color:var(--cit)}
+.win{text-align:center;background:var(--flam);color:var(--ink);border-radius:18px;padding:16px;display:grid;gap:6px;justify-items:center}
+.win img{width:150px;height:auto}
+.win strong{font-family:var(--sign);font-weight:400;font-size:30px;color:var(--cream)}
+.foot{font-size:12px;color:rgba(253,241,216,.65);text-align:center}
+.reset{background:transparent;border:1px solid rgba(253,241,216,.4);border-radius:99px;padding:6px 12px;font-size:12px;cursor:pointer}
+canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;height:100%}
+@media (prefers-reduced-motion:reduce){.bulbs,.marquee .bulbline,.star-burst,.disc,.vac b{animation:none}.door .panel,.door img,.fourth img,.slip .m{transition:none}}
+</style>
+
+</head><body><canvas id="fx" aria-hidden="true"></canvas>
+<div class="wrap">
+  <div class="hero">
+    <video id="herov" src="v-hero-web.mp4" poster="v-hero-poster.jpg" autoplay muted loop playsinline aria-label="A Palm Springs pool at dusk, the disco ball turning and confetti drifting"></video>
+    <div class="sign" role="img" aria-label="Motel sign: Desert Joy, est. 1970, room 56, no vacancy">
+      <span class="bulbs"></span><span class="star-burst" aria-hidden="true"></span>
+      <div class="est">EST. 1970 · PALM SPRINGS</div>
+      <div class="name">Desert Joy</div>
+      <div class="row"><span class="room">ROOM 56</span><span class="vac"><b>NO</b> VACANCY</span></div>
+    </div>
+  </div>
+
+  <section class="intro">
+    <p><b>Welcome to Desert Joy, crew.</b> Four nights, one crew, every room booked. The sign says NO VACANCY because everyone Gordon loves is already here.</p>
+    <p>Find your door below. Each one hides a surprise made just for you. Every stop, every quest and every gift at the table earns a key.</p>
+    <div class="bar"><button class="pill" id="snd" aria-pressed="false">🔈 Sound off</button><span style="font-size:13px;color:var(--dim)">Turn sound on for the full show.</span></div>
+  </section>
+
+  <div class="keys" role="status" aria-live="polite"><b id="kc">0 keys</b><div class="fobs" id="fobs"></div><span id="cd">Nov 9</span></div>
+
+  <section aria-labelledby="gh">
+    <h2 id="gh">The guest register</h2>
+    <p class="sub">Five rooms, five surprises. Knock on yours first.</p>
+    <div class="doors">
+      <button class="door" data-room="joe" style="--dc:#19b8b0"><img src="s-joe.jpg" alt=""><span class="panel"><span class="num">1</span><span><span class="who">Joe</span><br><span class="suite">THE DROP SUITE</span></span></span><span class="knob"></span><span class="hang">KNOCK</span></button>
+      <button class="door" data-room="mason" style="--dc:#ff6f91"><img src="s-mason.jpg" alt=""><span class="panel"><span class="num">2</span><span><span class="who">Mason</span><br><span class="suite">THE PASSPORT ROOM</span></span></span><span class="knob"></span><span class="hang">KNOCK</span></button>
+      <button class="door" data-room="alex" style="--dc:#9bd46a"><img src="s-alex.jpg" alt=""><span class="panel"><span class="num">3</span><span><span class="who">Alex</span><br><span class="suite">THE CROWN SUITE</span></span></span><span class="knob"></span><span class="hang">KNOCK</span></button>
+      <button class="door" data-room="shannon" style="--dc:#c7a6ff"><img src="s-shannon.jpg" alt=""><span class="panel"><span class="num">4</span><span><span class="who">Shannon</span><br><span class="suite">THE KITCHEN</span></span></span><span class="knob"></span><span class="hang">KNOCK</span></button>
+      <button class="door wide" data-room="gordon" style="--dc:#ffb000"><img src="s-gordon.jpg" alt=""><span class="panel"><span class="num">56</span><span><span class="who">Gordon</span><br><span class="suite">THE PENTHOUSE · BIRTHDAY GUEST OF HONOR</span></span></span><span class="knob"></span><span class="hang">YOURS</span></button>
+    </div>
+  </section>
+
+  <section aria-labelledby="mq">
+    <h2 id="mq">Tonight on the marquee</h2>
+    <p class="sub">Saturday night's playbook. The crew votes, Gordon calls the audible. Every play shows its cost and energy first.</p>
+    <div class="marquee">
+      <div class="bulbline" aria-hidden="true"></div>
+      <div class="deck">
+        <button class="play" data-p="p1" aria-pressed="false"><span class="pn">PLAY 1 · TICKETED</span><b>Eagle, night two</b><small>DJ Alex Ramos · you, Joe, Mason</small><span class="en">●●●●●</span></button>
+        <button class="play" data-p="p2" aria-pressed="false"><span class="pn">PLAY 2 · FREE</span><b>NastTea at the Eagle</b><small>2 to 7 · $0</small><span class="en">●●●○○</span></button>
+        <button class="play" data-p="p3" aria-pressed="false"><span class="pn">PLAY 3 · YOUR PICKS</span><b>EDM roulette</b><small>Ace, Zoso, Hunters, the buck pool party</small><span class="en">●●●●○</span></button>
+        <button class="play" data-p="p4" aria-pressed="false"><span class="pn">PLAY 4 · HOME</span><b>Hot tub and chill</b><small>Home base · $0</small><span class="en">●○○○○</span></button>
+      </div>
+      <div class="mbar"><button class="btn" id="spin">Spin the marquee ✦</button><button class="btn ghost" id="audible">Audible</button><span id="callout" aria-live="polite"></span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="ph">
+    <h2 id="ph">Postcards from the weekend</h2>
+    <p class="sub">Tap each stop as you live it. Each one earns a key.</p>
+    <div class="cards">
+      <article class="post" style="--tilt:-1deg;--pc:#d63a62">
+        <img src="day-fri.jpg" alt="A desert bar glowing pink and gold under laser beams at night">
+        <div class="ph"><b>Arrive</b><span>FRI 11/6</span></div>
+        <ul class="stops">
+          <li><button class="stop" data-id="f1" aria-pressed="false"><span class="k"></span><span><span class="t">from noon</span><span class="what"><b>Skip the Line wristbands</b> at the Arenas kiosk for you, Joe, Mason and Alex.</span><span class="joy">Shannon's pro tip: tape the wristband.</span></span></button></li>
+          <li><button class="stop" data-id="f2" aria-pressed="false"><span class="k"></span><span><span class="t">9 PM</span><span class="what"><b>The Eagle</b>, Cathedral City. DJ Mitch Ferrino. Tickets on your phone.</span></span></button></li>
+        </ul>
+      </article>
+      <article class="post" style="--tilt:1deg;--pc:#138f89">
+        <img src="day-sat.jpg" alt="A sunny pool with rainbow floats, pride flags and a DJ tent">
+        <div class="ph"><b>Play</b><span>SAT 11/7</span></div>
+        <ul class="stops">
+          <li><button class="stop" data-id="s1" aria-pressed="false"><span class="k"></span><span><span class="t">today</span><span class="what"><b>Mason lands.</b> The crew is complete.</span></span></button></li>
+          <li><button class="stop" data-id="s2" aria-pressed="false"><span class="k"></span><span><span class="t">11 AM on</span><span class="what"><b>Pride festival</b> and a wristband lap on Arenas.</span></span></button></li>
+          <li><button class="stop" data-id="s3" aria-pressed="false"><span class="k"></span><span><span class="t">night</span><span class="what"><b>Run tonight's marquee play.</b></span></span></button></li>
+        </ul>
+      </article>
+      <article class="post" style="--tilt:-.6deg;--pc:#3f8f3f">
+        <img src="day-sun.jpg" alt="A poolside brunch table under a pergola with a rainbow flag">
+        <div class="ph"><b>Brunch</b><span>SUN 11/8</span></div>
+        <ul class="stops">
+          <li><button class="stop" data-id="u1" aria-pressed="false"><span class="k"></span><span><span class="t">11:30 to 4</span><span class="what"><b>Pride brunch pool party.</b> Bring a dish.</span><span class="joy">Bonus: the parade runs 10 to noon if the morning is easy.</span></span></button></li>
+          <li><button class="stop" data-id="u2" aria-pressed="false"><span class="k"></span><span><span class="t">2 PM on</span><span class="what"><b>Full Service</b> at the Eagle, free.</span></span></button></li>
+        </ul>
+      </article>
+      <article class="post" style="--tilt:.8deg;--pc:#b07800">
+        <img src="day-mon.jpg" alt="A birthday cake with lit candles before golden desert mountains at sunrise">
+        <div class="ph"><b>You're 56</b><span>MON 11/9</span></div>
+        <ul class="stops">
+          <li><button class="stop" data-id="m1" aria-pressed="false"><span class="k"></span><span><span class="t">wake up</span><span class="what"><b>Gordon turns 56.</b> Shower him with love.</span></span></button></li>
+          <li><button class="stop" data-id="m2" aria-pressed="false"><span class="k"></span><span><span class="t">later</span><span class="what"><b>A birthday night out.</b></span></span></button></li>
+        </ul>
+        <p class="free">This day is already his. Nothing to unlock.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="rules" aria-labelledby="pr">
+    <h2 id="pr">Pool rules</h2>
+    <div class="rs">ALL RULES OPTIONAL · EACH ONE EARNS A KEY</div>
+    <div class="quests">
+      <button class="quest" data-q="q1" aria-pressed="false"><span class="e">🎧</span><span><b>One Galantis track for Joe.</b><small>At the Eagle or in the car.</small></span></button>
+      <button class="quest" data-q="q2" aria-pressed="false"><span class="e">🧪</span><span><b>Stamp the Eagle passport, for science.</b><small>Your 2022 vow: every Eagle in every city. Cathedral City, with Mason.</small></span></button>
+      <button class="quest" data-q="q3" aria-pressed="false"><span class="e">📸</span><span><b>One fresh pic, Alex-approved.</b><small>The whole crew in one frame.</small></span></button>
+      <button class="quest" data-q="q4" aria-pressed="false"><span class="e">🤝</span><span><b>Introduce two friends.</b><small>Your superpower. One new connection this weekend.</small></span></button>
+      <button class="quest" data-q="q5" aria-pressed="false"><span class="e">🥂</span><span><b>A zero-proof toast.</b><small>One round where everyone at the table can stay.</small></span></button>
+    </div>
+  </section>
+
+  <section aria-labelledby="fs">
+    <h2 id="fs">The fourth seat</h2>
+    <p class="sub">Whenever the crew sits down together. The seat stays empty until everyone adds something. Tap your name, then give.</p>
+    <div class="table">
+      <div class="seats" id="seats">
+        <button class="seat" data-who="Joe"><b>Joe</b><span>tap to give</span></button>
+        <button class="seat" data-who="Mason"><b>Mason</b><span>tap to give</span></button>
+        <button class="seat" data-who="Alex"><b>Alex</b><span>tap to give</span></button>
+        <button class="seat" data-who="Shannon"><b>Shannon</b><span>tap to give</span></button>
+        <button class="seat" data-who="Gordon"><b>Gordon</b><span>tap to give</span></button>
+        <button class="seat" data-who="Player 6"><b>Player 6</b><span>Julian, Laylah, Tony, Myke</span></button>
+      </div>
+      <div class="give" id="give" role="group" aria-label="What are you giving?">
+        <button class="btn" data-g="3 words for Gordon">3 words for Gordon</button>
+        <button class="btn" data-g="One thing I love">One thing I love</button>
+        <button class="btn" data-g="A song">A song</button>
+        <button class="btn" data-g="A dish">A dish</button>
+        <button class="btn" data-g="A toast">A toast</button>
+      </div>
+      <div class="fourth" id="fourth"><img src="trophy-56.png" alt="A gold 56 on a pink pedestal"><strong id="fourthT">The fourth seat is empty</strong><span id="fourthS">0 of 5 have given.</span></div>
+    </div>
+  </section>
+
+  <div class="win" id="win" role="status" hidden><img src="trophy-56.png" alt=""><strong>Checked out a legend</strong>Every key collected. Happy 56th, Gordon. 😍</div>
+
+  <section aria-labelledby="jb">
+    <h2 id="jb">The jukebox</h2>
+    <div class="juke" style="margin-top:12px"><span class="disc" aria-hidden="true"></span><div><b>Palm Springs Pride Desert Drive</b><br>Upbeat house and club anthems, plus Galantis for Joe.<br><a href="https://open.spotify.com/playlist/03IejcVYpup1zDbe5ZFDNA">Play it on Spotify</a></div></div>
+  </section>
+
+  <p class="foot">Made with love for Gordon's crew by Darby, Gordon's assistant. Art by Higgsfield, the gold 56 built in Blender, sound and Joe's drop by ElevenLabs. Keys stay on this phone. <button class="reset" id="reset">Reset</button></p>
+</div>
+
+<div class="roomview" id="rv" hidden role="dialog" aria-modal="true" aria-labelledby="rvh"><div class="rv" id="rvbox"></div></div>
+
+<script>
+(function(){
+  var KEY="dj56-crew",S={stops:{},quests:{},play:null,seats:{},rooms:{}};
+  try{var r=JSON.parse(localStorage.getItem(KEY)||"null");if(r)S=Object.assign(S,r)}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $=function(q,c){return (c||document).querySelector(q)},$$=function(q,c){return [].slice.call((c||document).querySelectorAll(q))};
+
+  /* sound */
+  var soundOn=false,A={};
+  ["star","fanfare","envelope","spin","joe-drop","mason-stamp","alex-flash","shannon-bell","gordon-wish"].forEach(function(n){try{A[n]=new Audio(n+".mp3");A[n].preload="auto"}catch(e){}});
+  function play(n,keep){if(!soundOn||!A[n])return null;try{var a=keep?A[n]:A[n].cloneNode();a.currentTime=0;a.volume=.75;a.play().catch(function(){});return a}catch(e){return null}}
+  $("#snd").addEventListener("click",function(){soundOn=!soundOn;this.setAttribute("aria-pressed",soundOn);this.textContent=soundOn?"🔊 Sound on":"🔈 Sound off";if(soundOn)play("star")});
+
+  /* confetti */
+  var cv=$("#fx"),cx=cv.getContext("2d"),parts=[],raf=0,dpr=window.devicePixelRatio||1;
+  function size(){cv.width=innerWidth*dpr;cv.height=innerHeight*dpr}size();addEventListener("resize",size);
+  var cols=["#ffb000","#ff6f91","#19b8b0","#9bd46a","#fdf1d8","#fff2b0"];
+  function burst(x,y,n,shape){if(reduce)return;for(var i=0;i<n;i++){var a=Math.random()*Math.PI*2,s=2+Math.random()*7;parts.push({x:x*dpr,y:y*dpr,vx:Math.cos(a)*s*dpr,vy:(Math.sin(a)*s-4)*dpr,r:(3+Math.random()*4)*dpr,c:cols[i%cols.length],life:60+Math.random()*40,rot:Math.random()*6,sh:shape||"rect"})}if(!raf)raf=requestAnimationFrame(tick)}
+  function tick(){cx.clearRect(0,0,cv.width,cv.height);parts=parts.filter(function(p){return p.life>0});parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=(p.sh==="star"?.05:.25)*dpr;p.vx*=.98;p.life--;p.rot+=.2;cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.fillStyle=p.c;cx.globalAlpha=Math.min(1,p.life/30);if(p.sh==="star"){cx.beginPath();for(var k=0;k<5;k++){cx.lineTo(Math.cos(k*1.2566)*p.r*1.6,Math.sin(k*1.2566)*p.r*1.6);cx.lineTo(Math.cos(k*1.2566+.628)*p.r*.6,Math.sin(k*1.2566+.628)*p.r*.6)}cx.fill()}else cx.fillRect(-p.r,-p.r/2,p.r*2,p.r);cx.restore()});raf=parts.length?requestAnimationFrame(tick):0}
+  function at(el,n,sh){var r=el.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,n,sh)}
+
+  /* keys */
+  var stops=$$(".stop"),quests=$$(".quest"),rooms=["joe","mason","alex","shannon","gordon"];
+  var fobColors=["#ff6f91","#19b8b0","#ffb000","#9bd46a","#c7a6ff"];
+  function seatsGiven(){return ["Joe","Mason","Alex","Shannon","Gordon"].filter(function(w){return S.seats[w]}).length}
+  var MAX=stops.length+quests.length+rooms.length+1+1;
+  function keys(){var n=0;stops.forEach(function(b){if(S.stops[b.dataset.id])n++});quests.forEach(function(b){if(S.quests[b.dataset.q])n++});rooms.forEach(function(r){if(S.rooms[r])n++});if(S.play)n++;if(seatsGiven()===5)n++;return n}
+  var fobs=$("#fobs");for(var i=0;i<MAX;i++){var f=document.createElement("span");f.className="fob";f.style.setProperty("--c",fobColors[i%5]);fobs.appendChild(f)}
+  function render(){
+    stops.forEach(function(b){b.setAttribute("aria-pressed",!!S.stops[b.dataset.id])});
+    quests.forEach(function(b){b.setAttribute("aria-pressed",!!S.quests[b.dataset.q])});
+    $$(".play").forEach(function(b){b.setAttribute("aria-pressed",S.play===b.dataset.p)});
+    $$(".door").forEach(function(d){if(S.rooms[d.dataset.room])d.setAttribute("data-seen","");else d.removeAttribute("data-seen")});
+    $$(".seat").forEach(function(b){var g=S.seats[b.dataset.who],sp=b.querySelector("span");if(g){b.setAttribute("data-gave","");sp.textContent=g}else{b.removeAttribute("data-gave");sp.textContent=b.dataset.who==="Player 6"?"Julian, Laylah, Tony, Myke":"tap to give"}});
+    var g=seatsGiven();$("#fourth").classList.toggle("lit",g===5);$("#fourthT").textContent=g===5?"The fourth seat is full":"The fourth seat is empty";$("#fourthS").textContent=g===5?"Everyone gave something. That's the table.":g+" of 5 have given.";
+    var n=keys();$("#kc").textContent=n+(n===1?" key":" keys");$$(".fob",fobs).forEach(function(f,i){f.classList.toggle("on",i<n)});
+    $("#win").hidden=n<MAX;return n;
+  }
+  function earn(el,snd){var was=$("#win").hidden;render();if(el)at(el,36);if(snd)play(snd);if(was&&!$("#win").hidden){setTimeout(function(){burst(innerWidth/2,innerHeight/3,200,"star");play("fanfare")},400)}}
+  stops.forEach(function(b){b.addEventListener("click",function(){var id=b.dataset.id;S.stops[id]=!S.stops[id];save();if(S.stops[id])earn(b.querySelector(".k"),"star");else render()})});
+  quests.forEach(function(b){b.addEventListener("click",function(){var q=b.dataset.q;S.quests[q]=!S.quests[q];save();if(S.quests[q])earn(b.querySelector(".e"),"star");else render()})});
+
+  /* marquee */
+  var plays=$$(".play"),names={p1:"Eagle, night two",p2:"NastTea at the Eagle",p3:"EDM roulette",p4:"Hot tub and chill"};
+  plays.forEach(function(b){b.addEventListener("click",function(){S.play=S.play===b.dataset.p?null:b.dataset.p;save();$("#callout").textContent=S.play?"Tonight: "+names[S.play]+".":"";if(S.play)earn(b,"star");else render()})});
+  $("#spin").addEventListener("click",function(){play("spin");var i=0,steps=reduce?1:14,pick;(function step(){plays.forEach(function(p){p.classList.remove("hl")});pick=plays[Math.floor(Math.random()*plays.length)];pick.classList.add("hl");if(++i<steps)setTimeout(step,60+i*14);else{pick.classList.remove("hl");S.play=pick.dataset.p;save();$("#callout").textContent="The marquee says: "+names[S.play]+". Vote it up or call an audible.";earn(pick,null)}})()});
+  $("#audible").addEventListener("click",function(){S.play=null;save();render();$("#callout").textContent="Audible! Gordon calls it. Tap any play."});
+
+  /* fourth seat */
+  var who=null,give=$("#give");
+  $$(".seat").forEach(function(b){b.addEventListener("click",function(){who=b.dataset.who;if(S.seats[who]){delete S.seats[who];save();render();give.classList.remove("on");return}give.classList.add("on");$$(".seat").forEach(function(s){s.style.outline=s===b?"3px solid var(--cit)":""})})});
+  $$("#give .btn").forEach(function(b){b.addEventListener("click",function(){if(!who)return;var was=seatsGiven()===5;S.seats[who]=b.dataset.g;save();give.classList.remove("on");$$(".seat").forEach(function(s){s.style.outline=""});var seat=document.querySelector('.seat[data-who="'+who+'"]');who=null;earn(seat,"star");if(!was&&seatsGiven()===5){at($("#fourth"),200,"star");play("fanfare")}})});
+
+  /* slips */
+  $$(".slip").forEach(function(w){w.addEventListener("click",function(){var open=w.getAttribute("aria-expanded")!=="true";w.setAttribute("aria-expanded",open);if(open){at(w,20);play("envelope")}})});
+
+  /* ---- the five rooms ---- */
+  var rv=$("#rv"),box=$("#rvbox"),lastDoor=null,music=null;
+  var ROOMS={
+    joe:{c:"#19b8b0",cd:"#0f7d77",img:"s-joe.jpg",alt:"A convertible on a desert highway at night with music bursting into the sky",t:"Joe, hold for the drop",p:"For the captain who runs the headcount and drives everyone home. Press and hold to build it. Let go to drop it.",a:"Hold to build",kind:"hold"},
+    mason:{c:"#ff6f91",cd:"#d63a62",img:"s-mason.jpg",alt:"An open passport covered in eagle stamps beside a red dodgeball",t:"Mason's passport, for science",p:"Every Eagle in every city, for science. Tap the passport to stamp it. Five stamps for the Cinderfella of Dodgeball.",a:"Stamp it",kind:"stamp"},
+    alex:{c:"#9bd46a",cd:"#4f9a2c",img:"s-alex.jpg",alt:"A glittering crown floating above a neon nightlife street",t:"Alex, prom king",p:"Prom king, line whisperer, keeper of the fresh pics. Tap to crown him. Fresh pics only.",a:"Crown him",kind:"flash"},
+    shannon:{c:"#c7a6ff",cd:"#7a55c9",img:"s-shannon.jpg",alt:"A birthday feast of mac and cheese, BBQ chicken, Caesar salad and lemon cake",t:"Shannon's kitchen",p:"The chef of “this is your life,” the food version. Build the plate. When it's full, ring the dinner bell.",a:"",kind:"plate"},
+    gordon:{c:"#ffb000",cd:"#b07800",img:"s-gordon.jpg",alt:"A glowing banquet table in the desert under a cake-shaped constellation",t:"Gordon, make a wish",p:"His table, his stars, his 56. Hold the candle, make a wish for Gordon, then let go.",a:"Hold the candle",kind:"wish"}
+  };
+  function openRoom(id,door){
+    var R=ROOMS[id];lastDoor=door;
+    box.style.setProperty("--rc",R.c);box.style.setProperty("--rcd",R.cd);
+    box.innerHTML='<button class="close" id="rvx">Close ✕</button><div class="art"><img src="'+R.img+'" alt="'+R.alt+'"><span class="beams"></span><span class="flash"></span><span class="stamps"></span><canvas class="sky"></canvas></div><div class="txt"><h3 id="rvh">'+R.t+'</h3><p>'+R.p+'</p><div class="ctrl"></div><div class="result" aria-live="polite"></div></div>';
+    rv.hidden=false;document.body.style.overflow="hidden";$("#rvx").focus();
+    $("#rvx").addEventListener("click",closeRoom);
+    var ctrl=$(".ctrl",box),res=$(".result",box),img=$(".art img",box),art=$(".art",box);
+    function done(msg){res.textContent=msg;if(!S.rooms[id]){S.rooms[id]=true;save();render()}}
+    if(R.kind==="hold"){
+      ctrl.innerHTML='<div class="gauge"><i></i></div><button class="act" style="margin-top:10px;width:100%">'+R.a+'</button>';
+      var g=$(".gauge i",ctrl),b=$(".act",ctrl),lvl=0,iv=null,beams=$(".beams",box);
+      function down(e){e.preventDefault();if(iv)return;if(soundOn&&!music){music=play("joe-drop",true)}
+        iv=setInterval(function(){lvl=Math.min(100,lvl+2.2);g.style.width=lvl+"%";img.style.filter="saturate("+(1+lvl/60)+") brightness("+(1+lvl/250)+")";if(!reduce)img.style.transform="scale("+(1+lvl/900)+") translateX("+((Math.random()-.5)*lvl/40)+"px)";b.textContent=lvl<100?"Building… "+Math.round(lvl)+"%":"Let go!"},40)}
+      function up(){if(!iv)return;clearInterval(iv);iv=null;
+        if(lvl>=60){beams.style.opacity=1;beams.style.background="conic-gradient(from 200deg at 50% 100%,transparent 0 8deg,rgba(255,242,176,.6) 8deg 12deg,transparent 12deg 24deg,rgba(255,111,145,.6) 24deg 28deg,transparent 28deg 40deg,rgba(25,184,176,.6) 40deg 44deg,transparent 44deg)";at(art,180,"star");b.textContent="DROP! 🎉";done("Galantis energy, captain. Thank you for driving us all home.");setTimeout(function(){beams.style.opacity=0},1800)}
+        else{b.textContent="Hold longer for the drop";if(music){music.pause();music=null}}
+        lvl=0;setTimeout(function(){g.style.width="0";img.style.transform=""},900)}
+      b.addEventListener("pointerdown",down);b.addEventListener("pointerup",up);b.addEventListener("pointerleave",up);b.addEventListener("pointercancel",up);
+      b.addEventListener("keydown",function(e){if(e.key===" "||e.key==="Enter")down(e)});b.addEventListener("keyup",function(e){if(e.key===" "||e.key==="Enter")up()});
+    }
+    if(R.kind==="stamp"){
+      ctrl.innerHTML='<button class="act" style="width:100%">'+R.a+' (0/5)</button>';
+      var sb=$(".act",ctrl),st=$(".stamps",box),n=0,labels=["EAGLE<br>PS","FOR<br>SCIENCE","BEST<br>FRIEND","DODGE<br>BALL","NO<br>LINE"];
+      function stamp(x,y){if(n>=5)return;var s=document.createElement("span");s.innerHTML=labels[n];s.style.left=(x-43)+"px";s.style.top=(y-43)+"px";s.style.setProperty("--r",(Math.random()*40-20)+"deg");st.appendChild(s);n++;play("mason-stamp");sb.textContent=n<5?R.a+" ("+n+"/5)":"Passport full 🧪";if(n===5){at(art,140);done("Five stamps. Science has spoken. Best friend, ride or die.")}}
+      sb.addEventListener("click",function(){var r=art.getBoundingClientRect();stamp(40+Math.random()*(r.width-80),40+Math.random()*(r.height-80))});
+      art.addEventListener("click",function(e){var r=art.getBoundingClientRect();stamp(e.clientX-r.left,e.clientY-r.top)});
+    }
+    if(R.kind==="flash"){
+      ctrl.innerHTML='<button class="act" style="width:100%">'+R.a+' 👑</button>';
+      var fb=$(".act",ctrl),fl=$(".flash",box),shots=0;
+      fb.addEventListener("click",function(){shots++;play("alex-flash");if(!reduce){fl.style.transition="none";fl.style.opacity=.95;setTimeout(function(){fl.style.transition="opacity .6s";fl.style.opacity=0},60)}
+        at(art,60,"star");fb.textContent=shots<3?"Again! Fresh pics only 📸 ("+shots+"/3)":"All hail the prom king 👑";if(shots===3)done("Crowned. The line moves for Alex.")});
+    }
+    if(R.kind==="plate"){
+      var dishes=["Mac and cheese","Carolina BBQ chicken","Caesar salad","Lemon cake"];
+      ctrl.innerHTML='<div class="plate">'+dishes.map(function(d){return '<button class="dish" aria-pressed="false">'+d+'</button>'}).join("")+'</div><button class="act" style="width:100%;margin-top:10px" disabled>Ring the dinner bell 🔔</button>';
+      var bell=$(".act",ctrl);bell.style.opacity=.45;
+      $$(".dish",ctrl).forEach(function(d){d.addEventListener("click",function(){d.setAttribute("aria-pressed",d.getAttribute("aria-pressed")!=="true");at(d,14);play("star");var all=$$(".dish[aria-pressed=true]",ctrl).length===4;bell.disabled=!all;bell.style.opacity=all?1:.45})});
+      bell.addEventListener("click",function(){play("shannon-bell");at(art,160);done("Dinner is served. You said it yourself: “it really IS my life.”")});
+    }
+    if(R.kind==="wish"){
+      ctrl.innerHTML='<div class="gauge"><i></i></div><button class="act" style="margin-top:10px;width:100%">'+R.a+' 🕯️</button>';
+      var wg=$(".gauge i",ctrl),wb=$(".act",ctrl),wl=0,wi=null,sky=$(".sky",box);
+      function wd(e){e.preventDefault();if(wi)return;wi=setInterval(function(){wl=Math.min(100,wl+1.6);wg.style.width=wl+"%";wb.textContent=wl<100?"Think of your wish… "+Math.round(wl)+"%":"Now let go and blow ✨"},40)}
+      function wu(){if(!wi)return;clearInterval(wi);wi=null;if(wl>=80){play("gordon-wish");setTimeout(function(){play("fanfare")},450);starfield(sky,art);at(art,220,"star");var fv=document.createElement("video");fv.src="v-gordon-web.mp4";fv.muted=true;fv.playsInline=true;fv.autoplay=true;fv.loop=true;fv.setAttribute("playsinline","");fv.style.cssText="position:absolute;inset:0;width:100%;height:100%;object-fit:cover";if(!reduce){img.parentNode.insertBefore(fv,img.nextSibling);fv.play().catch(function(){})}wb.textContent="Wish made. It's yours to keep.";done("Wish sent. Happy 56th, Gordon. 😍")}else{wb.textContent="Hold a little longer";}wl=0;setTimeout(function(){wg.style.width="0"},900)}
+      wb.addEventListener("pointerdown",wd);wb.addEventListener("pointerup",wu);wb.addEventListener("pointerleave",wu);wb.addEventListener("pointercancel",wu);
+      wb.addEventListener("keydown",function(e){if(e.key===" "||e.key==="Enter")wd(e)});wb.addEventListener("keyup",function(e){if(e.key===" "||e.key==="Enter")wu()});
+    }
+  }
+  function starfield(c,art){var r=art.getBoundingClientRect(),d=dpr;c.width=r.width*d;c.height=r.height*d;c.style.width="100%";c.style.height="100%";var x=c.getContext("2d"),s=[];for(var i=0;i<140;i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height*.6,r:Math.random()*2*d+.5,a:0,v:.01+Math.random()*.03});var f=0;(function loop(){x.clearRect(0,0,c.width,c.height);s.forEach(function(p){p.a=Math.min(1,p.a+p.v);x.globalAlpha=p.a*(.6+.4*Math.sin(f/10+p.x));x.fillStyle="#fff2b0";x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()});if(++f<600&&!rv.hidden)requestAnimationFrame(loop)})()}
+  function closeRoom(){rv.hidden=true;document.body.style.overflow="";if(music){try{music.pause()}catch(e){}music=null}box.innerHTML="";if(lastDoor)lastDoor.focus()}
+  rv.addEventListener("click",function(e){if(e.target===rv)closeRoom()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!rv.hidden)closeRoom()});
+  $$(".door").forEach(function(d){d.addEventListener("click",function(){play("envelope");openRoom(d.dataset.room,d)})});
+
+  $("#reset").addEventListener("click",function(){S={stops:{},quests:{},play:null,seats:{},rooms:{}};save();render();$("#callout").textContent=""});
+  function cd(){var t=new Date("2026-11-09T00:00:00-08:00")-new Date(),el=$("#cd");if(t<=0&&t>-864e5){el.textContent="Happy birthday";return}if(t<=0){el.textContent="56 and counting";return}var d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5);el.textContent=(d?d+"d ":"")+h+"h to 56"}
+  cd();setInterval(cd,60000);render();try{if(reduce){var hv=$("#herov");hv.removeAttribute("autoplay");hv.pause()}}catch(e){}
+})();
+</script>
+</body></html>
