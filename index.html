@@ -203,6 +203,29 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
 #combo{font-family:var(--head);color:var(--flam);font-size:18px;min-width:3ch;text-align:right}
 @media (prefers-reduced-motion:reduce){.cbtn,.door.mine{animation:none}#toast{transition:none}}
 
+
+/* ---- Arenas crawl + disco floor ---- */
+.crawl{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 0 0 3px var(--cit)}
+.crawl img.map{display:block;width:100%;height:auto}
+.bar{position:absolute;transform:translate(-50%,-50%);border:0;background:rgba(15,26,58,.82);color:var(--cream);font-family:var(--head);font-size:14px;padding:6px 10px;border-radius:99px;cursor:pointer;box-shadow:0 0 0 2px var(--bc),0 0 14px var(--bc);white-space:nowrap}
+.bar[data-done]{background:var(--bc);color:var(--ink)}
+.bar[data-done]::after{content:" ✓"}
+.crawlbox{margin-top:10px;background:var(--mid2);border-radius:14px;padding:12px;display:grid;gap:8px;min-height:120px}
+.crawlbox b{font-family:var(--head);font-weight:400;font-size:20px;color:var(--cit)}
+.band{width:100%;max-width:420px;height:auto;transition:transform .4s cubic-bezier(.2,1.6,.4,1)}
+.band.flash{transform:scale(1.12) rotate(-3deg)}
+.linebar{position:relative;height:22px;border-radius:99px;background:linear-gradient(90deg,#d63a62 0 38%,#57b05a 38% 58%,#d63a62 58%)}
+.linebar i{position:absolute;top:-4px;width:6px;height:30px;border-radius:3px;background:var(--cream);box-shadow:0 0 8px var(--cream)}
+.crawlstat{font-family:var(--type);font-size:13px;color:var(--pool)}
+.floor{background:radial-gradient(circle at 50% 40%,#2a1b5c,#0f1a3a 70%);border-radius:18px;padding:16px;text-align:center;display:grid;gap:8px;justify-items:center;box-shadow:inset 0 0 0 2px rgba(255,111,145,.5)}
+.dball{width:170px;height:170px;border:0;border-radius:50%;background:transparent url(disco-anim.webp) center/contain no-repeat;cursor:pointer;position:relative}
+.dball::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:4px solid var(--flam);opacity:0;transform:scale(1.4)}
+.dball.beat::before{animation:ring .5s ease-out}
+@keyframes ring{0%{opacity:.9;transform:scale(1.4)}100%{opacity:0;transform:scale(1)}}
+.judge{font-family:var(--head);font-size:26px;min-height:1.2em;color:var(--cit)}
+.dstat{font-family:var(--type);font-size:13px;color:var(--cream)}
+@media (prefers-reduced-motion:reduce){.band{transition:none}.dball.beat::before{animation:none}}
+
 @media (prefers-reduced-motion:reduce){.bulbs,.marquee .bulbline,.star-burst,.disc,.vac b{animation:none}.door .panel,.door img,.fourth img,.slip .m{transition:none}}
 </style>
 
@@ -270,6 +293,32 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
     </div>
   </section>
 
+
+  <section aria-labelledby="ac2">
+    <h2 id="ac2">The Arenas crawl</h2>
+    <p class="sub">Six bars on Arenas Road. Tap a bar to walk in. Your Skip the Line wristband gets you past five of the lines. Tool Shed is the one you have to earn, so let Alex read the line.</p>
+    <div class="crawl" id="crawl">
+      <img class="map" src="arenas.jpg" alt="An illustrated neon map of six bars along Arenas Road at night">
+      <button class="bar" data-bar="hunters" style="left:24%;top:17%;--bc:#ff6f91">Hunters</button>
+      <button class="bar" data-bar="chill" style="left:76%;top:17%;--bc:#19b8b0">Chill</button>
+      <button class="bar" data-bar="blackbook" style="left:24%;top:41%;--bc:#ffb000">Blackbook</button>
+      <button class="bar" data-bar="quadz" style="left:76%;top:41%;--bc:#9bd46a">QuadZ</button>
+      <button class="bar" data-bar="dicks" style="left:24%;top:65%;--bc:#ff4b4b">Dick's</button>
+      <button class="bar" data-bar="toolshed" style="left:76%;top:65%;--bc:#b48cff">Tool Shed</button>
+    </div>
+    <div class="crawlbox" id="crawlbox" aria-live="polite"><b>Pick a bar to start the crawl.</b><span class="crawlstat" id="crawlstat">0 of 6 bars · no lines waited</span></div>
+  </section>
+
+  <section aria-labelledby="df">
+    <h2 id="df">The disco floor</h2>
+    <p class="sub">Tap the disco ball on the beat, when the pink ring lands. Eight beats per round. Every tap counts and there are no misses, only style points.</p>
+    <div class="floor">
+      <button class="dball" id="dball" aria-label="Tap the disco ball on the beat"></button>
+      <div class="judge" id="judge" aria-live="polite"></div>
+      <button class="btn" id="dstart">Start the beat ✦</button>
+      <div class="dstat" id="dstat">Dance floor rating: not yet rated</div>
+    </div>
+  </section>
   <section aria-labelledby="ph">
     <h2 id="ph">Postcards from the weekend</h2>
     <p class="sub">Tap each stop as you live it. Each one earns a key.</p>
@@ -385,8 +434,8 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
   var stops=$$(".stop"),quests=$$(".quest"),rooms=["joe","mason","alex","shannon","gordon"];
   var fobColors=["#ff6f91","#19b8b0","#ffb000","#9bd46a","#c7a6ff"];
   function seatsGiven(){return ["Joe","Mason","Alex","Shannon","Gordon"].filter(function(w){return S.seats[w]}).length}
-  var MAX=stops.length+quests.length+rooms.length+1+1;
-  function keys(){var n=0;stops.forEach(function(b){if(S.stops[b.dataset.id])n++});quests.forEach(function(b){if(S.quests[b.dataset.q])n++});rooms.forEach(function(r){if(S.rooms[r])n++});if(S.play)n++;if(seatsGiven()===5)n++;return n}
+  var MAX=stops.length+quests.length+rooms.length+1+1+2;
+  function keys(){var n=0;stops.forEach(function(b){if(S.stops[b.dataset.id])n++});quests.forEach(function(b){if(S.quests[b.dataset.q])n++});rooms.forEach(function(r){if(S.rooms[r])n++});if(S.play)n++;if(seatsGiven()===5)n++;if(S.crawlWin)n++;if(S.disco)n++;return n}
   var fobs=$("#fobs");for(var i=0;i<MAX;i++){var f=document.createElement("span");f.className="fob";f.style.setProperty("--c",fobColors[i%5]);fobs.appendChild(f)}
   function render(){
     stops.forEach(function(b){b.setAttribute("aria-pressed",!!S.stops[b.dataset.id])});
@@ -510,7 +559,38 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
   $("#spin").addEventListener("click",function(){setTimeout(function(){goal("play","🎰","Marquee spun!","Tonight's plan is up in lights.")},1400)});
   $$("#give .btn").forEach(function(b){b.addEventListener("click",function(){goal("seat","🎁","Gift left at the table!","The fourth seat fills when everyone gives.")})});
   checkLevel();
-  $("#reset").addEventListener("click",function(){S={stops:{},quests:{},play:null,seats:{},rooms:{},goals:{}};save();render();$("#callout").textContent=""});
+
+  /* ---- Arenas crawl ---- */
+  S.crawl=S.crawl||{};
+  var BARS={hunters:["Hunters",1],chill:["Chill",1],blackbook:["Blackbook",1],quadz:["QuadZ",1],dicks:["Dick's",1],toolshed:["Tool Shed",0]};
+  var cb=$("#crawlbox");
+  function crawlRender(){var n=0;$$(".bar").forEach(function(b){var d=S.crawl[b.dataset.bar];if(d){b.setAttribute("data-done","");n++}else b.removeAttribute("data-done")});
+    $("#crawlstat").textContent=n+" of 6 bars · "+(n?"no lines waited":"wristband ready");return n}
+  function crawlDone(bar){var was=crawlRender()===6;S.crawl[bar]=true;save();var n=crawlRender();
+    if(n===6&&!was){S.crawlWin=true;save();setTimeout(function(){cb.innerHTML='<b>“We literally ran Tool Shed.”</b><span>Gordon’s words from his 55th, now a trophy. Six bars, zero lines.</span><span class="crawlstat">ACHIEVEMENT · ARENAS ROYALTY</span>';toast("👑","Arenas royalty!","You ran the whole crawl. Six bars, zero lines.",true);play("levelup");burst(innerWidth/2,innerHeight/3,200,"star");earn(null,null)},500)}}
+  $$(".bar").forEach(function(b){b.addEventListener("click",function(){var key=b.dataset.bar,info=BARS[key];
+    if(info[1]){cb.innerHTML='<b>'+info[0]+'</b><span>The line is out the door. Flash your Skip the Line wristband.</span><button class="btn" id="flash">Flash the wristband ⚡</button><img class="band" src="wristband-band.png" alt="A Desert Joy 56 VIP all-access wristband"><span class="crawlstat" id="crawlstat"></span>';
+      $("#flash").addEventListener("click",function(){var band=$(".band",cb);band.classList.add("flash");setTimeout(function(){band.classList.remove("flash")},400);at(this,50,"star");play("combo");this.disabled=true;this.textContent="⚡ Skipped the line!";toast("⚡","Skipped the line at "+info[0],"Wristband power. Straight to the dance floor.");crawlDone(key)})}
+    else{cb.innerHTML='<b>Tool Shed</b><span>No wristband here. Alex says the line looks slow but it moves constantly. Tap GO when the marker is in the green.</span><div class="linebar"><i id="mk"></i></div><button class="btn" id="go">GO</button><span class="crawlstat" id="crawlstat"></span>';
+      var mk=$("#mk"),pos=0,dir=1,lb=$(".linebar",cb),speed=reduce?0:1.6,raf2=0;
+      (function mv(){pos+=dir*speed;if(pos>=100||pos<=0)dir*=-1;mk.style.left="calc("+pos+"% - 3px)";raf2=requestAnimationFrame(mv)})();
+      if(reduce){pos=48;mk.style.left="calc(48% - 3px)"}
+      $("#go").addEventListener("click",function(){var g=this;if(pos>=38&&pos<=58){cancelAnimationFrame(raf2);at(g,80,"star");play("levelup");g.disabled=true;g.textContent="You're in!";toast("🛠️","Alex read the line perfectly","Tool Shed, conquered.");crawlDone("toolshed")}
+        else{play("star");g.textContent="Almost! Try again";setTimeout(function(){g.textContent="GO"},700)}})}
+    play("envelope")})});
+  crawlRender();if(S.crawlWin)cb.innerHTML='<b>“We literally ran Tool Shed.”</b><span>Crawl complete. Arenas royalty.</span>';
+
+  /* ---- disco floor ---- */
+  var BPM=120,IV=60000/BPM,beatT=0,beats=0,running=false,score=[],ball=$("#dball");
+  function judge(txt){$("#judge").textContent=txt}
+  $("#dstart").addEventListener("click",function(){if(running)return;running=true;beats=0;score=[];this.disabled=true;judge("Ready…");
+    var t0=performance.now()+IV;(function tickb(){var now=performance.now();if(now>=t0){beatT=t0;beats++;ball.classList.remove("beat");void ball.offsetWidth;ball.classList.add("beat");t0+=IV;if(beats>8){running=false;finish();return}}requestAnimationFrame(tickb)})()});
+  ball.addEventListener("click",function(){if(!running){judge("Press start first ✦");return}var d=Math.abs(performance.now()-beatT);if(d>IV/2)d=IV-d;
+    var r=d<=60?"PERFECT":d<=120?"GOOD":"STYLE";score.push(r);judge(r+"!");play(r==="PERFECT"?"combo":"star");if(r==="PERFECT")at(ball,26,"star")});
+  function finish(){var p=score.filter(function(s){return s==="PERFECT"}).length,g=score.filter(function(s){return s==="GOOD"}).length;var rating=Math.min(99,60+p*5+g*3+score.length);
+    $("#dstat").textContent="Dance floor rating: "+rating+"  ·  "+p+" perfect, "+g+" good";$("#dstart").disabled=false;$("#dstart").textContent="Dance again ✦";
+    judge(rating>=90?"Floor legend! 🪩":"Nice moves! 🪩");if(!S.disco){S.disco=true;save();earn(ball,null)}toast("🪩","Dance floor rating: "+rating,rating>=90?"The floor is yours.":"Run it back for a higher rating.",rating>=90);play(rating>=90?"levelup":"combo");burst(innerWidth/2,innerHeight/2,rating>=90?160:60,"star")}
+  $("#reset").addEventListener("click",function(){S={stops:{},quests:{},play:null,seats:{},rooms:{},goals:{},crawl:{}};save();render();$("#callout").textContent=""});
   function cd(){var t=new Date("2026-11-09T00:00:00-08:00")-new Date(),el=$("#cd");if(t<=0&&t>-864e5){el.textContent="Happy birthday";return}if(t<=0){el.textContent="56 and counting";return}var d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5);el.textContent=(d?d+"d ":"")+h+"h to 56"}
   cd();setInterval(cd,60000);render();try{if(reduce){var hv=$("#herov");hv.removeAttribute("autoplay");hv.pause()}}catch(e){}
 })();
