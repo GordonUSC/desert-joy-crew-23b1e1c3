@@ -258,6 +258,35 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
 @keyframes popin{0%{transform:scale(.96) rotate(-.8deg)}100%{transform:none}}
 @media (prefers-reduced-motion:reduce){.sign.boot .name span,.sign.boot .vac b,.popin{animation:none}#balloons{display:none}}
 
+
+/* ---- Dare-o-matic + Pride Bingo (fun first) ---- */
+.dare{background:linear-gradient(180deg,var(--flam),#c43a6a);border-radius:26px 70px 26px 26px;padding:16px;box-shadow:0 0 0 5px var(--cream),0 0 0 9px var(--cit),0 18px 40px rgba(0,0,0,.45);color:var(--cream);display:grid;gap:12px}
+.dare h2{color:var(--cream);font-size:28px}
+.dare .dsub{margin:0;font-size:16px}
+.reels{display:grid;gap:8px}
+.reel{background:var(--cream);color:var(--ink);border-radius:14px;padding:10px 12px;display:grid;grid-template-columns:76px 1fr;gap:10px;align-items:center;min-height:62px;border:4px solid var(--rc,var(--ink));box-shadow:inset 0 -6px 0 rgba(15,26,58,.12)}
+.reel .rlab{font-family:var(--type);font-size:14px;font-weight:700;letter-spacing:.08em;color:#4b5679}
+.reel .rval{font-family:var(--head);font-size:21px;line-height:1.15}
+.reel.spinning .rval{filter:blur(1.2px);opacity:.75}
+.reel.landed{animation:land .35s cubic-bezier(.2,1.6,.4,1)}
+@keyframes land{0%{transform:scale(.94)}100%{transform:scale(1)}}
+.lever{background:var(--cit);color:var(--ink);border:4px solid var(--ink);border-radius:99px;padding:14px 22px;min-height:56px;font-family:var(--head);font-size:22px;cursor:pointer;box-shadow:0 6px 0 var(--ink)}
+.lever:active{transform:translateY(4px);box-shadow:0 2px 0 var(--ink)}
+.lever[disabled]{opacity:.7}
+.dpulls{font-family:var(--type);font-size:14px;font-weight:700}
+.dare.jackpot{animation:jp .6s ease-in-out 3}
+@keyframes jp{50%{box-shadow:0 0 0 5px var(--cream),0 0 0 9px var(--cit),0 0 80px var(--cit)}}
+.bingo{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.bsq{position:relative;min-height:84px;border:3px solid var(--pool);border-radius:12px;background:var(--mid2);color:var(--cream);font-size:14px;font-weight:700;line-height:1.2;padding:6px 4px;cursor:pointer;display:grid;place-items:center;text-align:center}
+.bsq[aria-pressed="true"]{background:var(--pool);color:var(--ink);border-color:var(--cream)}
+.bsq[aria-pressed="true"]::after{content:"★";position:absolute;top:2px;right:6px;font-size:16px;color:var(--flamd);animation:stamp .4s cubic-bezier(.2,1.6,.4,1)}
+@keyframes stamp{0%{transform:scale(3) rotate(-30deg);opacity:0}100%{transform:none;opacity:1}}
+.bsq.bfree{border-color:var(--cit)}
+.bsq.line{box-shadow:0 0 0 3px var(--cit),0 0 18px var(--cit)}
+.bstat{font-family:var(--type);font-size:14px;font-weight:700;color:var(--pool);margin-top:8px}
+@media (max-width:360px){.bsq{font-size:14px;min-height:96px}}
+@media (prefers-reduced-motion:reduce){.reel.landed,.dare.jackpot,.bsq[aria-pressed="true"]::after{animation:none}}
+
 @media (prefers-reduced-motion:reduce){.bulbs,.marquee .bulbline,.star-burst,.disc,.vac b{animation:none}.door .panel,.door img,.fourth img,.slip .m{transition:none}}
 
 /* ---- legibility pass: nothing under 14px ---- */
@@ -320,6 +349,18 @@ body{font-size:17px}
   </section>
   <div class="keys" role="status" aria-live="polite"><b id="kc">0 keys</b><div class="fobs" id="fobs"></div><span id="cd">Nov 9</span></div>
 
+  <section class="dare" aria-labelledby="dz" id="dare">
+    <h2 id="dz">🎰 The Dare-o-matic</h2>
+    <p class="dsub">Pull the lever. Do the dare. Pass the phone. Three matching colors is a jackpot.</p>
+    <div class="reels">
+      <div class="reel" id="r0"><span class="rlab">WHO</span><span class="rval">Pull to play</span></div>
+      <div class="reel" id="r1"><span class="rlab">DOES</span><span class="rval">something kind</span></div>
+      <div class="reel" id="r2"><span class="rlab">WHERE</span><span class="rval">somewhere fun</span></div>
+    </div>
+    <button class="lever" id="lever">Pull the lever ✦</button>
+    <div class="dpulls" id="dstat2" aria-live="polite">0 pulls · 0 jackpots</div>
+  </section>
+
   <section aria-labelledby="gh">
     <h2 id="gh">The guest register</h2>
     <p class="sub">Five rooms, five surprises. Knock on yours first.</p>
@@ -329,6 +370,37 @@ body{font-size:17px}
       <button class="door" data-room="alex" style="--dc:#9bd46a"><img src="s-alex.jpg" alt=""><span class="panel"><span class="num">3</span><span><span class="who">Alex</span><br><span class="suite">THE CROWN SUITE</span></span></span><span class="knob"></span><span class="hang">KNOCK</span></button>
       <button class="door" data-room="shannon" style="--dc:#c7a6ff"><img src="s-shannon.jpg" alt=""><span class="panel"><span class="num">4</span><span><span class="who">Shannon</span><br><span class="suite">THE KITCHEN</span></span></span><span class="knob"></span><span class="hang">KNOCK</span></button>
       <button class="door wide" data-room="gordon" style="--dc:#ffb000"><img src="s-gordon.jpg" alt=""><span class="panel"><span class="num">56</span><span><span class="who">Gordon</span><br><span class="suite">THE PENTHOUSE · BIRTHDAY GUEST OF HONOR</span></span></span><span class="knob"></span><span class="hang">YOURS</span></button>
+    </div>
+  </section>
+
+  <section aria-labelledby="bg">
+    <h2 id="bg">Pride weekend bingo</h2>
+    <p class="sub">Tap a square when it happens in real life. Get four in a row for BINGO. Fill the whole card to become a Pride Legend.</p>
+    <div class="bingo" id="bingo"><button class="bsq" data-i="0" aria-pressed="false">See the parade</button><button class="bsq" data-i="1" aria-pressed="false">Wear rainbow</button><button class="bsq" data-i="2" aria-pressed="false">Wristband selfie</button><button class="bsq" data-i="3" aria-pressed="false">Dance at the Eagle</button><button class="bsq" data-i="4" aria-pressed="false">Pool party splash</button><button class="bsq bfree" data-i="5" aria-pressed="false">Gordon turns 56 ⭐</button><button class="bsq" data-i="6" aria-pressed="false">Birthday dinner toast</button><button class="bsq" data-i="7" aria-pressed="false">Hear a Galantis song</button><button class="bsq" data-i="8" aria-pressed="false">Meet someone new</button><button class="bsq" data-i="9" aria-pressed="false">Spot a drag queen</button><button class="bsq" data-i="10" aria-pressed="false">Brunch bite</button><button class="bsq" data-i="11" aria-pressed="false">Arenas lap</button><button class="bsq" data-i="12" aria-pressed="false">Sunset photo</button><button class="bsq" data-i="13" aria-pressed="false">Sing along</button><button class="bsq" data-i="14" aria-pressed="false">Fresh pic with the crew</button><button class="bsq" data-i="15" aria-pressed="false">Hug the birthday boy</button></div>
+    <div class="bstat" id="bstat" aria-live="polite">1 of 16 · no bingo yet</div>
+  </section>
+  <section aria-labelledby="ac2">
+    <h2 id="ac2">The Arenas crawl</h2>
+    <p class="sub">Six bars on Arenas Road. Tap a bar to walk in. Your Skip the Line wristband gets you past five of the lines. Tool Shed is the one you have to earn, so let Alex read the line.</p>
+    <div class="crawl" id="crawl">
+      <img class="map" src="arenas.jpg" alt="An illustrated neon map of six bars along Arenas Road at night">
+      <button class="bar" data-bar="hunters" style="left:24%;top:17%;--bc:#ff6f91">Hunters</button>
+      <button class="bar" data-bar="chill" style="left:76%;top:17%;--bc:#19b8b0">Chill</button>
+      <button class="bar" data-bar="blackbook" style="left:24%;top:41%;--bc:#ffb000">Blackbook</button>
+      <button class="bar" data-bar="quadz" style="left:76%;top:41%;--bc:#9bd46a">QuadZ</button>
+      <button class="bar" data-bar="dicks" style="left:24%;top:65%;--bc:#ff4b4b">Dick's</button>
+      <button class="bar" data-bar="toolshed" style="left:76%;top:65%;--bc:#b48cff">Tool Shed</button>
+    </div>
+    <div class="crawlbox" id="crawlbox" aria-live="polite"><b>Pick a bar to start the crawl.</b><span class="crawlstat" id="crawlstat">0 of 6 bars · no lines waited</span></div>
+  </section>
+  <section aria-labelledby="df">
+    <h2 id="df">The disco floor</h2>
+    <p class="sub">Tap the disco ball on the beat, when the pink ring lands. Eight beats per round. Every tap counts and there are no misses, only style points.</p>
+    <div class="floor">
+      <button class="dball" id="dball" aria-label="Tap the disco ball on the beat"></button>
+      <div class="judge" id="judge" aria-live="polite"></div>
+      <button class="btn" id="dstart">Start the beat ✦</button>
+      <div class="dstat" id="dstat">Dance floor rating: not yet rated</div>
     </div>
   </section>
 
@@ -348,31 +420,7 @@ body{font-size:17px}
   </section>
 
 
-  <section aria-labelledby="ac2">
-    <h2 id="ac2">The Arenas crawl</h2>
-    <p class="sub">Six bars on Arenas Road. Tap a bar to walk in. Your Skip the Line wristband gets you past five of the lines. Tool Shed is the one you have to earn, so let Alex read the line.</p>
-    <div class="crawl" id="crawl">
-      <img class="map" src="arenas.jpg" alt="An illustrated neon map of six bars along Arenas Road at night">
-      <button class="bar" data-bar="hunters" style="left:24%;top:17%;--bc:#ff6f91">Hunters</button>
-      <button class="bar" data-bar="chill" style="left:76%;top:17%;--bc:#19b8b0">Chill</button>
-      <button class="bar" data-bar="blackbook" style="left:24%;top:41%;--bc:#ffb000">Blackbook</button>
-      <button class="bar" data-bar="quadz" style="left:76%;top:41%;--bc:#9bd46a">QuadZ</button>
-      <button class="bar" data-bar="dicks" style="left:24%;top:65%;--bc:#ff4b4b">Dick's</button>
-      <button class="bar" data-bar="toolshed" style="left:76%;top:65%;--bc:#b48cff">Tool Shed</button>
-    </div>
-    <div class="crawlbox" id="crawlbox" aria-live="polite"><b>Pick a bar to start the crawl.</b><span class="crawlstat" id="crawlstat">0 of 6 bars · no lines waited</span></div>
-  </section>
 
-  <section aria-labelledby="df">
-    <h2 id="df">The disco floor</h2>
-    <p class="sub">Tap the disco ball on the beat, when the pink ring lands. Eight beats per round. Every tap counts and there are no misses, only style points.</p>
-    <div class="floor">
-      <button class="dball" id="dball" aria-label="Tap the disco ball on the beat"></button>
-      <div class="judge" id="judge" aria-live="polite"></div>
-      <button class="btn" id="dstart">Start the beat ✦</button>
-      <div class="dstat" id="dstat">Dance floor rating: not yet rated</div>
-    </div>
-  </section>
   <section aria-labelledby="ph">
     <h2 id="ph">Postcards from the weekend</h2>
     <p class="sub">Tap each stop as you live it. Each one earns a key.</p>
@@ -490,8 +538,8 @@ body{font-size:17px}
   var stops=$$(".stop"),quests=$$(".quest"),rooms=["joe","mason","alex","shannon","gordon"];
   var fobColors=["#ff6f91","#19b8b0","#ffb000","#9bd46a","#c7a6ff"];
   function seatsGiven(){return ["Joe","Mason","Alex","Shannon","Gordon"].filter(function(w){return S.seats[w]}).length}
-  var MAX=stops.length+quests.length+rooms.length+1+1+2+2;
-  function keys(){var n=0;stops.forEach(function(b){if(S.stops[b.dataset.id])n++});quests.forEach(function(b){if(S.quests[b.dataset.q])n++});rooms.forEach(function(r){if(S.rooms[r])n++});if(S.play)n++;if(seatsGiven()===5)n++;if(S.crawlWin)n++;if(S.disco)n++;if(S.balloonChamp)n++;if(S.fireworks)n++;return n}
+  var MAX=stops.length+quests.length+rooms.length+1+1+2+2+2;
+  function keys(){var n=0;stops.forEach(function(b){if(S.stops[b.dataset.id])n++});quests.forEach(function(b){if(S.quests[b.dataset.q])n++});rooms.forEach(function(r){if(S.rooms[r])n++});if(S.play)n++;if(seatsGiven()===5)n++;if(S.crawlWin)n++;if(S.disco)n++;if(S.balloonChamp)n++;if(S.fireworks)n++;if(S.dare)n++;if(S.bingoWin)n++;return n}
   var fobs=$("#fobs");for(var i=0;i<MAX;i++){var f=document.createElement("span");f.className="fob";f.style.setProperty("--c",fobColors[i%5]);fobs.appendChild(f)}
   function render(){
     stops.forEach(function(b){b.setAttribute("aria-pressed",!!S.stops[b.dataset.id])});
@@ -651,7 +699,9 @@ body{font-size:17px}
   var NEXT=[
     [function(){return S.goals.checkin},"Check in at the desk","#ci"],
     [function(){return S.goals.who},"Tell the desk who you are","#ci"],
+    [function(){return S.dare},"Pull the Dare-o-matic lever","#dz"],
     [function(){return S.me&&S.me!=="guest"?S.rooms[S.me]:Object.keys(S.rooms).length>0},"Open your room's surprise","#gh"],
+    [function(){return S.bingoWin},"Get a Pride bingo","#bg"],
     [function(){return S.play},"Spin tonight's marquee","#mq"],
     [function(){return S.crawlWin},"Run the Arenas crawl","#ac2"],
     [function(){return S.disco},"Hit the disco floor","#df"],
@@ -715,7 +765,31 @@ body{font-size:17px}
 
   /* ---- scroll pop-ins (content always visible) ---- */
   if(!reduce&&"IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("popin");io.unobserve(e.target)}})},{threshold:.15});$$(".wrap > section, .post, .door").forEach(function(el){io.observe(el)})}
-  $("#reset").addEventListener("click",function(){S={stops:{},quests:{},play:null,seats:{},rooms:{},goals:{},crawl:{},dance:{},pops:0};save();render();$("#callout").textContent=""});
+    /* ---- Dare-o-matic ---- */
+  var WHO=["Joe", "Mason", "Alex", "Shannon", "Gordon", "Whoever's closest"],WHAT=["toast Gordon in 3 words","strike your best dodgeball pose","request a Galantis song","take a fresh pic (Alex-approved)","introduce two strangers","do a prom-king wave","say \u201cfor science\u201d and try something new","hug the birthday boy","dance like it's the drop"],WHERE=["on Arenas", "at the pool", "at the Eagle", "at brunch", "right here, right now"],RC=["#ff6f91","#19b8b0","#ffb000"];
+  S.pulls=S.pulls||0;S.jack=S.jack||0;
+  function dstat(){$("#dstat2").textContent=S.pulls+(S.pulls===1?" pull":" pulls")+" · "+S.jack+(S.jack===1?" jackpot":" jackpots")}
+  dstat();
+  $("#lever").addEventListener("click",function(){var lv=this;lv.disabled=true;play("spin");var lists=[WHO,WHAT,WHERE],res=[0,1,2].map(function(k){return Math.floor(Math.random()*lists[k].length)}),col=[0,1,2].map(function(){return Math.floor(Math.random()*3)});
+    var reels=[0,1,2].map(function(k){return $("#r"+k)}),iv=[];
+    reels.forEach(function(r,k){r.classList.remove("landed");r.style.setProperty("--rc","var(--ink)");if(!reduce){r.classList.add("spinning");iv[k]=setInterval(function(){r.querySelector(".rval").textContent=lists[k][Math.floor(Math.random()*lists[k].length)]},70)}});
+    [0,1,2].forEach(function(k){setTimeout(function(){clearInterval(iv[k]);var r=reels[k];r.classList.remove("spinning");r.querySelector(".rval").textContent=lists[k][res[k]];r.style.setProperty("--rc",RC[col[k]]);void r.offsetWidth;r.classList.add("landed");play("combo");
+      if(k===2){S.pulls++;var jp=col[0]===col[1]&&col[1]===col[2];if(jp)S.jack++;save();dstat();lv.disabled=false;lv.textContent="Pull again ✦";
+        if(jp){var d=$("#dare");d.classList.remove("jackpot");void d.offsetWidth;d.classList.add("jackpot");at(d,180,"star");play("levelup");toast("🎰","JACKPOT!","Three of a kind. "+lists[0][res[0]]+" picks the next song!",true)}
+        else toast("🎲","Your dare",lists[0][res[0]]+": "+lists[1][res[1]]+", "+lists[2][res[2]]+".");
+        if(!S.dare){S.dare=true;save();earn(lv,null)}else{try{checkLevel()}catch(e){}}}},reduce?0:(700+k*450))})});
+
+  /* ---- Pride bingo ---- */
+  S.bingo=S.bingo||{};var bsq=$$(".bsq"),LINES=[[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15],[0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15],[0,5,10,15],[3,6,9,12]];
+  S.bingo[5]=true;
+  function bRender(){var n=0;bsq.forEach(function(b){var on=!!S.bingo[b.dataset.i];b.setAttribute("aria-pressed",on);b.classList.remove("line");if(on)n++});var lines=LINES.filter(function(L){return L.every(function(i){return S.bingo[i]})});lines.forEach(function(L){L.forEach(function(i){bsq[i].classList.add("line")})});
+    $("#bstat").textContent=n+" of 16 · "+(n===16?"PRIDE LEGEND 🏳️‍🌈":lines.length?lines.length+(lines.length===1?" bingo!":" bingos!"):"no bingo yet");return [n,lines.length]}
+  var bPrev=bRender();
+  bsq.forEach(function(b){b.addEventListener("click",function(){var i=b.dataset.i;if(i==="5"){toast("⭐","Free space","Gordon turns 56. That one's always marked.");return}S.bingo[i]=!S.bingo[i];save();var now=bRender();if(S.bingo[i]){at(b,22);play("star")}
+    if(now[1]>bPrev[1]){at($("#bingo"),200,"star");play("levelup");toast("🎉","BINGO!","Four in a row. The desert is proud of you.",true);try{if(typeof fireworks==="function"&&!reduce)fireworks()}catch(e){}if(!S.bingoWin){S.bingoWin=true;save();earn(null,null)}}
+    if(now[0]===16&&bPrev[0]<16){toast("🏳️‍🌈","PRIDE LEGEND","You filled the whole card. Legendary.",true);play("fanfare")}
+    bPrev=now})});
+  $("#reset").addEventListener("click",function(){S={stops:{},quests:{},play:null,seats:{},rooms:{},goals:{},crawl:{},dance:{},pops:0,pulls:0,jack:0,bingo:{}};save();render();$("#callout").textContent=""});
   function cd(){var t=new Date("2026-11-09T00:00:00-08:00")-new Date(),el=$("#cd");if(t<=0&&t>-864e5){el.textContent="Happy birthday";return}if(t<=0){el.textContent="56 and counting";return}var d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5);el.textContent=(d?d+"d ":"")+h+"h to 56"}
   cd();setInterval(cd,60000);render();try{if(reduce){var hv=$("#herov");hv.removeAttribute("autoplay");hv.pause()}}catch(e){}
 })();
