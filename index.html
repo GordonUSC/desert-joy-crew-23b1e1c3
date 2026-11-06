@@ -236,6 +236,28 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
 .board div.top{background:var(--cit);color:var(--ink);font-weight:800}
 @media (prefers-reduced-motion:reduce){.glow{animation:none;outline:3px solid var(--cit)}}
 
+
+/* ---- spectacle: neon intro, balloons, fireworks, pop-ins ---- */
+.sign .name span{display:inline-block}
+.sign.boot .name span{animation:tube .9s steps(1) both;animation-delay:calc(var(--i) * 110ms)}
+@keyframes tube{0%{opacity:.25;text-shadow:none}20%{opacity:1}30%{opacity:.35}45%{opacity:1}55%{opacity:.5}70%,100%{opacity:1}}
+.sign.boot .vac b{animation:buzz 1.4s steps(1) both 1.3s}
+@keyframes buzz{0%{opacity:.3}15%{opacity:1}25%{opacity:.3}40%{opacity:1}50%{opacity:.4}65%,100%{opacity:1}}
+.post video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px;max-width:100%;background:#000}
+#balloons{position:fixed;inset:0;pointer-events:none;z-index:25;overflow:hidden}
+.balloon{position:absolute;bottom:-140px;width:58px;height:72px;border:0;padding:0;border-radius:50% 50% 48% 48%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.65),transparent 32%),var(--bc);pointer-events:auto;cursor:pointer;box-shadow:inset -6px -8px 0 rgba(0,0,0,.12);animation:rise var(--dur) linear forwards}
+.balloon::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:46px;background:rgba(253,241,216,.7);transform:translateX(-50%)}
+.balloon::before{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:var(--bc)}
+@keyframes rise{0%{transform:translate(0,0) rotate(-4deg)}25%{transform:translate(14px,-30vh) rotate(4deg)}50%{transform:translate(-10px,-60vh) rotate(-3deg)}75%{transform:translate(12px,-90vh) rotate(3deg)}100%{transform:translate(0,-125vh) rotate(0)}}
+.balloon.popped{animation:none;transform:scale(1.6);opacity:0;transition:transform .15s,opacity .15s}
+#fw{position:fixed;inset:0;z-index:45;pointer-events:none;width:100%;height:100%}
+#fwmsg{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%) scale(.9);z-index:46;pointer-events:none;font-family:var(--sign);font-size:clamp(30px,9vw,56px);color:var(--cream);text-align:center;line-height:1.1;text-shadow:0 0 10px var(--flam),0 0 24px var(--cit);opacity:0;transition:opacity .8s,transform .8s;width:92vw}
+#fwmsg.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.fwbtn{margin-top:12px;width:100%;background:linear-gradient(90deg,var(--flam),var(--cit),var(--pool));color:var(--ink);border:0;border-radius:99px;padding:14px 18px;font-family:var(--head);font-size:20px;cursor:pointer;box-shadow:0 0 22px rgba(255,111,145,.6)}
+.popin{animation:popin .6s cubic-bezier(.2,1.3,.4,1)}
+@keyframes popin{0%{transform:scale(.96) rotate(-.8deg)}100%{transform:none}}
+@media (prefers-reduced-motion:reduce){.sign.boot .name span,.sign.boot .vac b,.popin{animation:none}#balloons{display:none}}
+
 @media (prefers-reduced-motion:reduce){.bulbs,.marquee .bulbline,.star-burst,.disc,.vac b{animation:none}.door .panel,.door img,.fourth img,.slip .m{transition:none}}
 </style>
 
@@ -334,7 +356,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
     <p class="sub">Tap each stop as you live it. Each one earns a key.</p>
     <div class="cards">
       <article class="post" style="--tilt:-1deg;--pc:#d63a62">
-        <img src="day-fri.jpg" alt="A desert bar glowing pink and gold under laser beams at night">
+        <video src="v-fri.mp4" poster="day-fri.jpg" autoplay muted loop playsinline aria-label="A desert bar glowing pink and gold under laser beams at night"></video>
         <div class="ph"><b>Arrive</b><span>FRI 11/6</span></div>
         <ul class="stops">
           <li><button class="stop" data-id="f1" aria-pressed="false"><span class="k"></span><span><span class="t">from noon</span><span class="what"><b>Skip the Line wristbands</b> at the Arenas kiosk for you, Joe, Mason and Alex.</span><span class="joy">Shannon's pro tip: tape the wristband.</span></span></button></li>
@@ -342,7 +364,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
         </ul>
       </article>
       <article class="post" style="--tilt:1deg;--pc:#138f89">
-        <img src="day-sat.jpg" alt="A sunny pool with rainbow floats, pride flags and a DJ tent">
+        <video src="v-sat.mp4" poster="day-sat.jpg" autoplay muted loop playsinline aria-label="A sunny pool with rainbow floats, pride flags and a DJ tent"></video>
         <div class="ph"><b>Play</b><span>SAT 11/7</span></div>
         <ul class="stops">
           <li><button class="stop" data-id="s1" aria-pressed="false"><span class="k"></span><span><span class="t">today</span><span class="what"><b>Mason lands.</b> The crew is complete.</span></span></button></li>
@@ -351,7 +373,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
         </ul>
       </article>
       <article class="post" style="--tilt:-.6deg;--pc:#3f8f3f">
-        <img src="day-sun.jpg" alt="A poolside brunch table under a pergola with a rainbow flag">
+        <video src="v-sun.mp4" poster="day-sun.jpg" autoplay muted loop playsinline aria-label="A poolside brunch table under a pergola with a rainbow flag"></video>
         <div class="ph"><b>Brunch</b><span>SUN 11/8</span></div>
         <ul class="stops">
           <li><button class="stop" data-id="u1" aria-pressed="false"><span class="k"></span><span><span class="t">11 AM to 4</span><span class="what"><b>Pride brunch pool party.</b> Bring a dish.</span><span class="joy">Bonus: the parade runs 10 to noon if the morning is easy.</span></span></button></li>
@@ -359,7 +381,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
         </ul>
       </article>
       <article class="post" style="--tilt:.8deg;--pc:#b07800">
-        <img src="day-mon.jpg" alt="A birthday cake with lit candles before golden desert mountains at sunrise">
+        <video src="v-mon.mp4" poster="day-mon.jpg" autoplay muted loop playsinline aria-label="A birthday cake with lit candles before golden desert mountains at sunrise"></video>
         <div class="ph"><b>You're 56</b><span>MON 11/9</span></div>
         <ul class="stops">
           <li><button class="stop" data-id="m1" aria-pressed="false"><span class="k"></span><span><span class="t">wake up</span><span class="what"><b>Gordon turns 56.</b> Shower him with love.</span></span></button></li>
@@ -410,12 +432,14 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
   <section aria-labelledby="jb">
     <h2 id="jb">The jukebox</h2>
     <div class="juke" style="margin-top:12px"><span class="disc" aria-hidden="true"></span><div><b>Palm Springs Pride Desert Drive</b><br>Upbeat house and club anthems, plus Galantis for Joe.<br><a href="https://open.spotify.com/playlist/03IejcVYpup1zDbe5ZFDNA">Play it on Spotify</a></div></div>
+  <button class="fwbtn" id="fwbtn">Light up the desert sky 🎆</button>
   </section>
 
   <p class="foot">Made with love for Gordon's crew by Darby, Gordon's assistant. Art by Higgsfield, the gold 56 built in Blender, sound and Joe's drop by ElevenLabs. Keys stay on this phone. <button class="reset" id="reset">Reset</button></p>
 </div>
 
 <div id="toast" role="status" aria-live="polite"></div>
+<div id="balloons"></div><canvas id="fw" aria-hidden="true"></canvas><div id="fwmsg" aria-hidden="true">HAPPY 56TH,<br>GORDON</div>
 <div class="roomview" id="rv" hidden role="dialog" aria-modal="true" aria-labelledby="rvh"><div class="rv" id="rvbox"></div></div>
 
 <script>
@@ -428,7 +452,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
 
   /* sound */
   var soundOn=false,A={};
-  ["star","fanfare","envelope","spin","levelup","combo","joe-drop","mason-stamp","alex-flash","shannon-bell","gordon-wish"].forEach(function(n){try{A[n]=new Audio(n+".mp3");A[n].preload="auto"}catch(e){}});
+  ["star","fanfare","envelope","spin","levelup","combo","pop","fireworks","neon","joe-drop","mason-stamp","alex-flash","shannon-bell","gordon-wish"].forEach(function(n){try{A[n]=new Audio(n+".mp3");A[n].preload="auto"}catch(e){}});
   function play(n,keep){if(!soundOn||!A[n])return null;try{var a=keep?A[n]:A[n].cloneNode();a.currentTime=0;a.volume=.75;a.play().catch(function(){});return a}catch(e){return null}}
   $("#snd").addEventListener("click",function(){soundOn=!soundOn;this.setAttribute("aria-pressed",soundOn);this.textContent=soundOn?"🔊 Sound on":"🔈 Sound off";if(soundOn)play("star")});
 
@@ -444,8 +468,8 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
   var stops=$$(".stop"),quests=$$(".quest"),rooms=["joe","mason","alex","shannon","gordon"];
   var fobColors=["#ff6f91","#19b8b0","#ffb000","#9bd46a","#c7a6ff"];
   function seatsGiven(){return ["Joe","Mason","Alex","Shannon","Gordon"].filter(function(w){return S.seats[w]}).length}
-  var MAX=stops.length+quests.length+rooms.length+1+1+2;
-  function keys(){var n=0;stops.forEach(function(b){if(S.stops[b.dataset.id])n++});quests.forEach(function(b){if(S.quests[b.dataset.q])n++});rooms.forEach(function(r){if(S.rooms[r])n++});if(S.play)n++;if(seatsGiven()===5)n++;if(S.crawlWin)n++;if(S.disco)n++;return n}
+  var MAX=stops.length+quests.length+rooms.length+1+1+2+2;
+  function keys(){var n=0;stops.forEach(function(b){if(S.stops[b.dataset.id])n++});quests.forEach(function(b){if(S.quests[b.dataset.q])n++});rooms.forEach(function(r){if(S.rooms[r])n++});if(S.play)n++;if(seatsGiven()===5)n++;if(S.crawlWin)n++;if(S.disco)n++;if(S.balloonChamp)n++;if(S.fireworks)n++;return n}
   var fobs=$("#fobs");for(var i=0;i<MAX;i++){var f=document.createElement("span");f.className="fob";f.style.setProperty("--c",fobColors[i%5]);fobs.appendChild(f)}
   function render(){
     stops.forEach(function(b){b.setAttribute("aria-pressed",!!S.stops[b.dataset.id])});
@@ -611,7 +635,9 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
     [function(){return S.disco},"Hit the disco floor","#df"],
     [function(){return S.goals.seat},"Give at the fourth seat","#fs"],
     [function(){return Object.keys(S.rooms).length>=5},"Visit every guest room","#gh"],
-    [function(){return Object.keys(S.quests).length>=3},"Take on 3 pool rules","#pr"]];
+    [function(){return Object.keys(S.quests).length>=3},"Take on 3 pool rules","#pr"],
+    [function(){return S.balloonChamp},"Pop 10 floating balloons","#gh"],
+    [function(){return S.fireworks},"Light up the desert sky","#jb"]];
   var nu=document.createElement("button");nu.className="nextup";nu.id="nextup";$(".keys").appendChild(nu);
   function nextRender(){for(var i=0;i<NEXT.length;i++){if(!NEXT[i][0]()){nu.innerHTML='<span>NEXT UP</span>'+NEXT[i][1]+' →';nu.dataset.to=NEXT[i][2];nu.hidden=false;return}}nu.innerHTML='<span>ALL DONE</span>You ran Desert Joy. Happy 56th, Gordon! 🎂';nu.dataset.to="#win"}
   nu.addEventListener("click",function(){var el=$(nu.dataset.to);if(!el)return;var sec=el.closest("section")||el;sec.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});sec.classList.remove("glow");void sec.offsetWidth;sec.classList.add("glow")});
@@ -628,7 +654,46 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
       if(prev)toast("📈","New personal best: "+m,(NAMES[who]||"You")+" just beat "+prev+".");if(lead===who&&Object.keys(S.dance).length>1)toast("👑",(NAMES[who]||"You")+" takes the crown!","Pass the phone. Who can top "+m+"?",true)}
     boardRender()};
   boardRender();
-  $("#reset").addEventListener("click",function(){S={stops:{},quests:{},play:null,seats:{},rooms:{},goals:{},crawl:{},dance:{}};save();render();$("#callout").textContent=""});
+
+  /* ---- spectacle: neon intro ---- */
+  (function(){var nm=$(".sign .name");if(!nm)return;var txt=nm.textContent;nm.setAttribute("aria-label",txt);nm.innerHTML=txt.split("").map(function(c,i){return '<span aria-hidden="true" style="--i:'+i+'">'+(c===" "?"&nbsp;":c)+'</span>'}).join("");
+    if(!reduce){var sg=$(".sign");sg.classList.add("boot");setTimeout(function(){sg.classList.remove("boot")},3200)}
+    var once=false;$("#snd").addEventListener("click",function(){if(soundOn&&!once){once=true;var sg=$(".sign");sg.classList.remove("boot");void sg.offsetWidth;if(!reduce)sg.classList.add("boot");play("neon")}})})();
+
+  /* ---- postcard videos ---- */
+  if(reduce){$$(".post video").forEach(function(v){v.removeAttribute("autoplay");try{v.pause()}catch(e){}})}
+
+  /* ---- balloons ---- */
+  S.pops=S.pops||0;
+  var BL=["Galantis for Joe! Turn it up, captain.","Eagle passport, for science, with Mason. 🧪","All hail prom king Alex. Fresh pics only. 👑","Shannon's feast: this is your life, the food version. 🍽️","Gordon introducing two friends. His superpower. 🤝","Skip the Line wristbands, taped on. Shannon's tip.","Le Party at the Ace. Splash! 🏊","Birthday dinner at 7:30. Joe booked it. 🍝","56 looks fabulous on Gordon. 🎂","No vacancy: everyone Gordon loves is here."];
+  var BC=["#ff6f91","#19b8b0","#ffb000","#9bd46a"],layer=$("#balloons"),live=0;
+  function spawn(){if(reduce||document.hidden||live>=3||!$("#rv").hidden)return;var b=document.createElement("button");b.className="balloon";b.setAttribute("aria-label","Pop a balloon");
+    b.style.left=(6+Math.random()*80)+"%";b.style.setProperty("--bc",BC[Math.floor(Math.random()*4)]);b.style.setProperty("--dur",(9+Math.random()*5)+"s");live++;
+    b.addEventListener("animationend",function(){if(b.parentNode){b.remove();live--}});
+    b.addEventListener("click",function(e){e.stopPropagation();if(b.classList.contains("popped"))return;b.classList.add("popped");at(b,40);play("pop");S.pops++;save();
+      toast("🎈",S.pops>=10?"Balloon "+S.pops+"!":"Balloon "+S.pops+" of 10",BL[(S.pops-1)%BL.length]);
+      if(S.pops===10&&!S.balloonChamp){S.balloonChamp=true;save();setTimeout(function(){toast("🏆","Balloon Champ!","Ten pops. A new key is yours.",true);play("levelup");earn(null,null)},900)}
+      setTimeout(function(){if(b.parentNode){b.remove();live--}},200)});
+    layer.appendChild(b)}
+  setTimeout(spawn,2500);setInterval(spawn,6500);
+
+  /* ---- fireworks ---- */
+  var fwc=$("#fw"),fx2=fwc.getContext("2d"),fwOn=false;
+  function fireworks(){if(fwOn)return;fwOn=true;play("fireworks");var W=fwc.width=innerWidth*dpr,H=fwc.height=innerHeight*dpr,rk=[],sp=[],t=0,cols2=["#ff6f91","#19b8b0","#ffb000","#9bd46a","#fdf1d8","#fff2b0","#b48cff"];
+    $("#fwmsg").classList.add("on");
+    if(reduce){setTimeout(function(){$("#fwmsg").classList.remove("on");fwOn=false},2500);return}
+    (function loop(){t++;if(t<200&&t%14===0)rk.push({x:W*(.15+Math.random()*.7),y:H,vy:-(9+Math.random()*5)*dpr,ty:H*(.15+Math.random()*.35),c:cols2[Math.floor(Math.random()*cols2.length)]});
+      fx2.globalCompositeOperation="source-over";fx2.fillStyle="rgba(15,26,58,0.22)";fx2.fillRect(0,0,W,H);fx2.globalCompositeOperation="lighter";
+      rk=rk.filter(function(r){r.y+=r.vy;fx2.fillStyle=r.c;fx2.fillRect(r.x-2*dpr,r.y,4*dpr,10*dpr);if(r.y<=r.ty){for(var i=0;i<70;i++){var a=Math.random()*6.283,s=(1+Math.random()*5)*dpr;sp.push({x:r.x,y:r.y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:60+Math.random()*30,c:r.c})}return false}return true});
+      sp=sp.filter(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.06*dpr;p.vx*=.985;p.l--;fx2.globalAlpha=Math.max(0,p.l/90);fx2.fillStyle=p.c;fx2.beginPath();fx2.arc(p.x,p.y,1.8*dpr,0,7);fx2.fill();fx2.globalAlpha=1;return p.l>0});
+      if(t<320||sp.length){requestAnimationFrame(loop)}else{fx2.clearRect(0,0,W,H);$("#fwmsg").classList.remove("on");fwOn=false}})();
+    if(!S.fireworks){S.fireworks=true;save();setTimeout(function(){earn(null,null)},400)}}
+  $("#fwbtn").addEventListener("click",fireworks);
+  var winObs=new MutationObserver(function(){if(!$("#win").hidden&&!S.fwAuto){S.fwAuto=true;save();setTimeout(fireworks,600)}});winObs.observe($("#win"),{attributes:true,attributeFilter:["hidden"]});
+
+  /* ---- scroll pop-ins (content always visible) ---- */
+  if(!reduce&&"IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("popin");io.unobserve(e.target)}})},{threshold:.15});$$(".wrap > section, .post, .door").forEach(function(el){io.observe(el)})}
+  $("#reset").addEventListener("click",function(){S={stops:{},quests:{},play:null,seats:{},rooms:{},goals:{},crawl:{},dance:{},pops:0};save();render();$("#callout").textContent=""});
   function cd(){var t=new Date("2026-11-09T00:00:00-08:00")-new Date(),el=$("#cd");if(t<=0&&t>-864e5){el.textContent="Happy birthday";return}if(t<=0){el.textContent="56 and counting";return}var d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5);el.textContent=(d?d+"d ":"")+h+"h to 56"}
   cd();setInterval(cd,60000);render();try{if(reduce){var hv=$("#herov");hv.removeAttribute("autoplay");hv.pause()}}catch(e){}
 })();
