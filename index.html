@@ -245,7 +245,7 @@ canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;heigh
 @keyframes buzz{0%{opacity:.3}15%{opacity:1}25%{opacity:.3}40%{opacity:1}50%{opacity:.4}65%,100%{opacity:1}}
 .post video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px;max-width:100%;background:#000}
 #balloons{position:fixed;inset:0;pointer-events:none;z-index:25;overflow:hidden}
-.balloon{position:absolute;bottom:-140px;width:58px;height:72px;border:0;padding:0;border-radius:50% 50% 48% 48%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.65),transparent 32%),var(--bc);pointer-events:auto;cursor:pointer;box-shadow:inset -6px -8px 0 rgba(0,0,0,.12);animation:rise var(--dur) linear forwards}
+.balloon{position:absolute;bottom:-140px;width:44px;height:56px;border:0;padding:0;border-radius:50% 50% 48% 48%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.65),transparent 32%),var(--bc);pointer-events:auto;cursor:pointer;box-shadow:inset -6px -8px 0 rgba(0,0,0,.12);animation:rise var(--dur) linear forwards}
 .balloon::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:46px;background:rgba(253,241,216,.7);transform:translateX(-50%)}
 .balloon::before{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:var(--bc)}
 @keyframes rise{0%{transform:translate(0,0) rotate(-4deg)}25%{transform:translate(14px,-30vh) rotate(4deg)}50%{transform:translate(-10px,-60vh) rotate(-3deg)}75%{transform:translate(12px,-90vh) rotate(3deg)}100%{transform:translate(0,-125vh) rotate(0)}}
@@ -572,6 +572,7 @@ body.takeover .tk-banner{display:block;animation:v9pop .6s}
   <button class="fwbtn" id="fwbtn">Light up the desert sky 🎆</button>
   </section>
 
+  <a class="farlink" href="https://gordonusc.github.io/desert-joy-56-9c08a0/floor/"><img src="trophy-56.png" alt="" width="56" height="56"><span><b>New 3D game: The Running Order →</b>Dance Gordon’s own festival nights, from his first EDC to midnight at Countdown with Joe. Beat 5,600, then send him your score.</span></a>
   <a class="farlink" href="https://gordonusc.github.io/desert-joy-56-9c08a0/#faraway"><img src="fw-lantern.webp" alt="" width="56" height="75"><span><b>For friends far away: the Faraway Room →</b>A room for everyone who loves Gordon but can’t make it to Palm Springs. Share it with them.</span></a>
 
   <p class="foot">Made with love for Gordon's crew by Darby, Gordon's assistant. Art by Higgsfield, the gold 56 built in Blender, sound and Joe's drop by ElevenLabs. Keys stay on this phone. <button class="reset" id="reset">Reset</button></p>
@@ -814,7 +815,7 @@ body.takeover .tk-banner{display:block;animation:v9pop .6s}
   var BL=["Galantis for Joe! Turn it up, captain.","Eagle passport, for science, with Mason. 🧪","All hail prom king Alex. Fresh pics only. 👑","Shannon's feast: this is your life, the food version. 🍽️","Gordon introducing two friends. His superpower. 🤝","Skip the Line wristbands, taped on. Shannon's tip.","Le Party at the Ace. Splash! 🏊","Birthday dinner at 7:30. Joe booked it. 🍝","56 looks fabulous on Gordon. 🎂","No vacancy: everyone Gordon loves is here."];
   var BC=["#ff6f91","#19b8b0","#ffb000","#9bd46a"],layer=$("#balloons"),live=0;
   function spawn(){if(reduce||document.hidden||live>=3||!$("#rv").hidden)return;var b=document.createElement("button");b.className="balloon";if(!S.sec.e&&(Math.random()<.18||S.pops===3)){b.className="balloon b56";b.style.setProperty("--bc","#ffb000");b.setAttribute("aria-label","A golden 56 balloon")}b.setAttribute("aria-label","Pop a balloon");
-    b.style.left=(6+Math.random()*80)+"%";b.style.setProperty("--bc",BC[Math.floor(Math.random()*4)]);b.style.setProperty("--dur",(9+Math.random()*5)+"s");live++;
+    if(Math.random()<.5){b.style.left="calc(-12px + "+(Math.random()*10)+"px)"}else{b.style.left="auto";b.style.right="calc(-12px + "+(Math.random()*10)+"px)"}b.style.setProperty("--bc",BC[Math.floor(Math.random()*4)]);b.style.setProperty("--dur",(9+Math.random()*5)+"s");live++;
     b.addEventListener("animationend",function(){if(b.parentNode){b.remove();live--}});
     b.addEventListener("click",function(e){e.stopPropagation();if(b.classList.contains("popped"))return;b.classList.add("popped");at(b,40);play("pop");S.pops++;save();
       toast("🎈",S.pops>=10?"Balloon "+S.pops+"!":"Balloon "+S.pops+" of 10",BL[(S.pops-1)%BL.length]);
