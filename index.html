@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><!-- STYLE: Palm Springs Googie motel, crew cut | WHY: Palm Springs is the capital of mid-century Googie signage, and Gordon was born in 1970, so the weekend is a motel he owns for four nights: a chase-light sign that says NO VACANCY because the crew is all here, five guest-room doors that each hide a bespoke surprise, key fobs instead of stars, While-You-Were-Out message slips for wishes | ALT: v3 risograph quest board, rejected because Gordon asked for a bespoke, new design and the quest board had become a house look -->
-<title>Desert Joy 56: Crew</title><meta property="og:title" content="Desert Joy 56: your room is ready"><meta property="og:image" content="s-gordon.jpg">
+<title>Desert Joy 56: Crew</title><meta property="og:title" content="Desert Joy 56: your room is ready"><meta property="og:image" content="https://gordonusc.github.io/desert-joy-crew-23b1e1c3/s-gordon.jpg"><meta name="twitter:card" content="summary_large_image">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Monoton&family=Righteous&family=Outfit:wght@400;600;800&family=Courier+Prime:wght@400;700&display=swap">
 <style>[hidden]{display:none!important}html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:#0f1a3a}img{max-width:100%}
@@ -362,6 +362,13 @@ body.takeover .tk-banner{display:block;animation:v9pop .6s}
 .farlink b{display:block;font-size:19px;color:#ffd27a}
 .farlink span{font-size:15px;color:#e9ddff;font-weight:400}
 .gamedoor{display:block;text-decoration:none}.gamedoor img{opacity:.6}.gamedoor:hover img,.gamedoor:focus-visible img{opacity:.85}
+.gthanks{position:fixed;inset:0;z-index:90;display:grid;place-items:center;align-content:center;gap:14px;padding:24px max(16px,env(safe-area-inset-left,0px));background:radial-gradient(circle,rgba(58,31,92,.92),rgba(11,6,32,.96));text-align:center;overflow:hidden;animation:gin .4s}
+.gthanks p{max-width:30ch;margin:0;font-size:20px;font-weight:800;line-height:1.3;color:#fff3d6}
+.gthanks button{min-height:52px;padding:10px 22px;border-radius:99px;border:0;background:linear-gradient(180deg,#ffe2a0,#f2a93b);color:#2a1600;font:inherit;font-weight:800;font-size:17px;cursor:pointer}
+.glant{font-size:72px;animation:glr 3s ease-in-out infinite alternate;filter:drop-shadow(0 0 24px rgba(255,180,90,.9))}
+.gheart{position:absolute;bottom:-40px;font-style:normal;font-size:26px;animation:gup 3.2s ease-out forwards}
+@keyframes gin{from{opacity:0}}@keyframes glr{to{transform:translateY(-18px) rotate(4deg)}}@keyframes gup{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.gthanks,.glant,.gheart{animation:none}.gheart{display:none}}
 .gsend{display:grid;gap:8px;margin-top:10px;padding:12px;border-radius:16px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,210,122,.6);text-align:left}
 .gsend label{display:grid;gap:4px;font-weight:800;font-size:15px}
 .gsend input{min-height:46px;border-radius:12px;border:1.5px solid rgba(255,210,122,.6);background:rgba(11,6,32,.6);color:inherit;font:inherit;font-size:17px;padding:8px 12px}
@@ -945,6 +952,14 @@ body.takeover .tk-banner{display:block;animation:v9pop .6s}
   cd();setInterval(cd,60000);render();try{if(reduce){var hv=$("#herov");hv.removeAttribute("autoplay");hv.pause()}}catch(e){}
 })();
 
+function thankYou(name){try{var a=new Audio(window.__thanksSnd||"thanks.mp3");a.volume=.8;var on=window.__sndOn?window.__sndOn():true;if(on){var p=a.play();p&&p.catch&&p.catch(function(){})}}catch(e){}
+  var line=(window.thankHook&&window.thankHook(name))||("Gordon’s gratitude, delivered: thank you"+(name?", "+name:"")+"! Every friend who plays is part of his 56th. 💛");
+  var o=document.createElement("div");o.className="gthanks";o.setAttribute("role","status");
+  var l=document.createElement("div");l.className="glant";l.textContent="🏮";var t=document.createElement("p");t.textContent=line;var b=document.createElement("button");b.type="button";b.textContent="💛 You’re welcome";
+  b.addEventListener("click",function(){o.remove()});o.appendChild(l);o.appendChild(t);o.appendChild(b);document.body.appendChild(o);setTimeout(function(){b.focus()},50);
+  for(var i=0;i<18;i++){var h=document.createElement("i");h.className="gheart";h.textContent=["💛","💗","🧡","💜","💙","💚"][i%6];h.style.left=(5+Math.random()*90)+"vw";h.style.animationDelay=(i*90)+"ms";o.appendChild(h)}
+  try{window.fw3d&&window.fw3d("lantern",{name:name})}catch(e){}
+  setTimeout(function(){if(o.parentNode)o.remove()},9000)}
 /* Send Gordon my score: one tap texts Darby (Gordon's AI helper), who passes every score to Gordon. */
 function scoreBox(host,getText,tag){if(!host||host.querySelector(".gsend"))return;
   var K="dj56-name",nm="";try{nm=localStorage.getItem(K)||""}catch(e){}
@@ -960,14 +975,23 @@ function scoreBox(host,getText,tag){if(!host||host.querySelector(".gsend"))retur
     sms.href="sms:gbellamyai@gmail.com"+(ios?"&":"?")+"body="+encodeURIComponent(t);
     em.href="mailto:gbellamyai@gmail.com?subject="+encodeURIComponent("Birthday game score for Gordon")+"&body="+encodeURIComponent(t)}
   function sent(){try{localStorage.setItem(K,inp.value.trim())}catch(e){}try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:"score_sent",title:tag||"score",event:true})}catch(e){}}
-  inp.addEventListener("input",upd);sms.addEventListener("click",function(){upd();sent()});em.addEventListener("click",function(){upd();sent()});
+  inp.addEventListener("input",upd);sms.addEventListener("click",function(){upd();sent();setTimeout(function(){thankYou(inp.value.trim())},600)});em.addEventListener("click",function(){upd();sent();setTimeout(function(){thankYou(inp.value.trim())},600)});
   cp.addEventListener("click",function(){var t=msg();sent();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){cp.textContent="Copied ✓"},function(){cp.textContent="Copy failed: select the text"})});
   sms.addEventListener("focus",upd);sms.addEventListener("pointerdown",upd);
   row.appendChild(em);row.appendChild(cp);box.appendChild(lab);box.appendChild(sms);box.appendChild(row);box.appendChild(note);host.appendChild(box);upd()}
 
+window.__sndOn=function(){try{return soundOn}catch(e){return false}};
 (function(){function q(id){return document.getElementById(id)}
   scoreBox(q("send-disco"),function(){return "🪩 Disco floor: "+q("dstat").textContent},"disco");
   scoreBox(q("send-dare"),function(){return "🎰 Dare-o-matic: "+q("dstat2").textContent},"dare");
   scoreBox(q("send-bingo"),function(){return "🌈 Pride bingo: "+q("bstat").textContent},"bingo")})();
+
+window.thankHook=function(name){var n=(name||"").toLowerCase().trim(),me="";try{me=(JSON.parse(localStorage.getItem("dj56-crew")||"{}").me)||""}catch(e){}
+  var who=/^joe/.test(n)?"joe":/^mason/.test(n)?"mason":/^alex/.test(n)?"alex":/^shannon/.test(n)?"shannon":(["joe","mason","alex","shannon"].indexOf(me)>=0?me:"");
+  var T={joe:"Joe: you booked the dinner, you bring the Galantis, you make every dance floor home. Gordon is grateful for every single dance with you. 💛",
+    mason:"Mason: the best friend in the universe, in Gordon’s own words. Thank you for every festival, every passport stamp, every night. 💛",
+    alex:"Alex: the crown suits you. Gordon is so grateful you came to the desert for his 56th. 👑💛",
+    shannon:"Shannon: the schedule, the feast, the tips that make the weekend work. Gordon is grateful for all of it. 🍽️💛"};
+  return T[who]||null};
 </script>
 </body></html>
