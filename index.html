@@ -362,6 +362,14 @@ body.takeover .tk-banner{display:block;animation:v9pop .6s}
 .farlink b{display:block;font-size:19px;color:#ffd27a}
 .farlink span{font-size:15px;color:#e9ddff;font-weight:400}
 .gamedoor{display:block;text-decoration:none}.gamedoor img{opacity:.6}.gamedoor:hover img,.gamedoor:focus-visible img{opacity:.85}
+.gsend{display:grid;gap:8px;margin-top:10px;padding:12px;border-radius:16px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,210,122,.6);text-align:left}
+.gsend label{display:grid;gap:4px;font-weight:800;font-size:15px}
+.gsend input{min-height:46px;border-radius:12px;border:1.5px solid rgba(255,210,122,.6);background:rgba(11,6,32,.6);color:inherit;font:inherit;font-size:17px;padding:8px 12px}
+.gsbtn{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:99px;background:linear-gradient(180deg,#9ff3ea,#2ed3c6);color:#062a27;font-weight:800;font-size:18px;text-decoration:none}
+.gsrow{display:flex;gap:8px}
+.gslink{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:99px;border:1.5px solid rgba(255,255,255,.5);background:transparent;color:inherit;font:inherit;font-weight:800;font-size:15px;text-decoration:none;cursor:pointer}
+.gsnote{margin:0;font-size:14px;opacity:.85}
+.gsend{color:var(--cream,#fdf1d8)}
 </style>
 
 <script data-goatcounter="https://cybercooper.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -420,6 +428,7 @@ body.takeover .tk-banner{display:block;animation:v9pop .6s}
     </div>
     <button class="lever" id="lever">Pull the lever ✦</button>
     <div class="dpulls" id="dstat2" aria-live="polite">0 pulls · 0 jackpots</div>
+    <div id="send-dare"></div>
   </section>
 
   <section aria-labelledby="gh">
@@ -440,6 +449,7 @@ body.takeover .tk-banner{display:block;animation:v9pop .6s}
     <p class="sub">Tap a square when it happens in real life. Get four in a row for BINGO. Fill the whole card to become a Pride Legend.</p>
     <div class="bingo" id="bingo"><button class="bsq" data-i="0" aria-pressed="false">See the parade</button><button class="bsq" data-i="1" aria-pressed="false">Wear rainbow</button><button class="bsq" data-i="2" aria-pressed="false">Wristband selfie</button><button class="bsq" data-i="3" aria-pressed="false">Dance at the Eagle</button><button class="bsq" data-i="4" aria-pressed="false">Pool party splash</button><button class="bsq bfree" data-i="5" aria-pressed="false">Gordon turns 56 ⭐</button><button class="bsq" data-i="6" aria-pressed="false">Birthday dinner toast</button><button class="bsq" data-i="7" aria-pressed="false">Hear a Galantis song with Joe</button><button class="bsq" data-i="8" aria-pressed="false">Meet someone new</button><button class="bsq" data-i="9" aria-pressed="false">Spot a drag queen</button><button class="bsq" data-i="10" aria-pressed="false">Brunch bite</button><button class="bsq" data-i="11" aria-pressed="false">Arenas lap</button><button class="bsq" data-i="12" aria-pressed="false">Sunset photo</button><button class="bsq" data-i="13" aria-pressed="false">Sing along</button><button class="bsq" data-i="14" aria-pressed="false">Fresh pic with the crew</button><button class="bsq" data-i="15" aria-pressed="false">Hug the birthday boy</button></div>
     <div class="bstat" id="bstat" aria-live="polite">1 of 16 · no bingo yet</div>
+    <div id="send-bingo"></div>
   </section>
 
   <section aria-labelledby="fl">
@@ -471,6 +481,7 @@ body.takeover .tk-banner{display:block;animation:v9pop .6s}
       <div class="judge" id="judge" aria-live="polite"></div>
       <button class="btn" id="dstart">Start the beat ✦</button>
       <div class="dstat" id="dstat">Dance floor rating: not yet rated</div>
+    <div id="send-disco"></div>
     </div>
   </section>
 
@@ -933,5 +944,30 @@ body.takeover .tk-banner{display:block;animation:v9pop .6s}
   function cd(){var t=new Date("2026-11-09T00:00:00-08:00")-new Date(),el=$("#cd");if(t<=0&&t>-864e5){el.textContent="Happy birthday";return}if(t<=0){el.textContent="56 and counting";return}var d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5);el.textContent=(d?d+"d ":"")+h+"h to 56"}
   cd();setInterval(cd,60000);render();try{if(reduce){var hv=$("#herov");hv.removeAttribute("autoplay");hv.pause()}}catch(e){}
 })();
+
+/* Send Gordon my score: one tap texts Darby (Gordon's AI helper), who passes every score to Gordon. */
+function scoreBox(host,getText,tag){if(!host||host.querySelector(".gsend"))return;
+  var K="dj56-name",nm="";try{nm=localStorage.getItem(K)||""}catch(e){}
+  var box=document.createElement("div");box.className="gsend";
+  var lab=document.createElement("label");lab.textContent="Your name (so Gordon knows it’s you)";var inp=document.createElement("input");inp.maxLength=24;inp.autocomplete="given-name";inp.placeholder="First name";inp.value=nm;lab.appendChild(inp);
+  var sms=document.createElement("a");sms.className="gsbtn";sms.textContent="📲 Send Gordon my score";
+  var row=document.createElement("div");row.className="gsrow";
+  var em=document.createElement("a");em.className="gslink";em.textContent="✉️ Email it";
+  var cp=document.createElement("button");cp.type="button";cp.className="gslink";cp.textContent="📋 Copy";
+  var note=document.createElement("p");note.className="gsnote";note.textContent="Opens a text to Darby, Gordon’s AI helper, who hands every score to Gordon and keeps the leaderboard. Just press send.";
+  function msg(){var n=inp.value.trim();return getText()+(n?" · from "+n:"")}
+  function upd(){var t=msg(),ios=/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+    sms.href="sms:gbellamyai@gmail.com"+(ios?"&":"?")+"body="+encodeURIComponent(t);
+    em.href="mailto:gbellamyai@gmail.com?subject="+encodeURIComponent("Birthday game score for Gordon")+"&body="+encodeURIComponent(t)}
+  function sent(){try{localStorage.setItem(K,inp.value.trim())}catch(e){}try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:"score_sent",title:tag||"score",event:true})}catch(e){}}
+  inp.addEventListener("input",upd);sms.addEventListener("click",function(){upd();sent()});em.addEventListener("click",function(){upd();sent()});
+  cp.addEventListener("click",function(){var t=msg();sent();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){cp.textContent="Copied ✓"},function(){cp.textContent="Copy failed: select the text"})});
+  sms.addEventListener("focus",upd);sms.addEventListener("pointerdown",upd);
+  row.appendChild(em);row.appendChild(cp);box.appendChild(lab);box.appendChild(sms);box.appendChild(row);box.appendChild(note);host.appendChild(box);upd()}
+
+(function(){function q(id){return document.getElementById(id)}
+  scoreBox(q("send-disco"),function(){return "🪩 Disco floor: "+q("dstat").textContent},"disco");
+  scoreBox(q("send-dare"),function(){return "🎰 Dare-o-matic: "+q("dstat2").textContent},"dare");
+  scoreBox(q("send-bingo"),function(){return "🌈 Pride bingo: "+q("bstat").textContent},"bingo")})();
 </script>
 </body></html>
